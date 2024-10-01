@@ -1,9 +1,7 @@
-
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ARIAL.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://FrontScene.gd" type="Script" id=2]
-
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.513726, 0.00392157, 0.509804, 1 )
@@ -164,6 +162,5 @@ margin_bottom = 450.0
 custom_fonts/font = SubResource( 4 )
 text = "Create New Account"
 flat = true
-
 
 [connection signal="pressed" from="Backgrounb/buttons/buttonLogin" to="." method="_on_buttonLogin_pressed"]
