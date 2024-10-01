@@ -1,20 +1,162 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Rick-Astley-Never-Gonna-Give-You-Up.webp" type="Texture" id=1]
+[ext_resource path="res://ARIAL.TTF" type="DynamicFontData" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.513726, 0.00392157, 0.509804, 1 )
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color( 0.282353, 0, 0.45098, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="DynamicFont" id=2]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0.537255, 0.0980392, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0.345098, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Label" type="Label" parent="."]
-margin_right = 304.0
-margin_bottom = 166.0
-rect_rotation = -0.488138
-text = "hello world!"
+[node name="Backgrounb" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchor_right = 0.5
+[node name="labelTexts" type="Node" parent="Backgrounb"]
+
+[node name="textTitle" type="Label" parent="Backgrounb/labelTexts"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -527.0
+custom_fonts/font = SubResource( 2 )
+text = "Welcome to GameLingo"
+align = 1
+
+[node name="textUsername" type="Label" parent="Backgrounb/labelTexts"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = 192.0
+margin_right = -784.0
+margin_bottom = -367.0
+custom_fonts/font = SubResource( 2 )
+text = "Username:"
+
+[node name="textPassword" type="Label" parent="Backgrounb/labelTexts"]
+anchor_top = 0.5
 anchor_bottom = 0.5
-margin_right = 5.0
-margin_bottom = 15.0
-texture = ExtResource( 1 )
+margin_left = 72.0
+margin_top = -44.0
+margin_right = 256.0
+margin_bottom = -3.0
+custom_fonts/font = SubResource( 2 )
+text = "Password:"
+
+[node name="textClasscode" type="Label" parent="Backgrounb/labelTexts"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 64.0
+margin_top = 20.0
+margin_right = 248.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 2 )
+text = "Classcode:"
+
+[node name="textWelcome" type="Label" parent="Backgrounb/labelTexts"]
+margin_left = 328.0
+margin_top = 144.0
+margin_right = 477.0
+margin_bottom = 185.0
+custom_fonts/font = SubResource( 7 )
+text = "Sign in"
+
+[node name="textfields" type="Node" parent="Backgrounb"]
+
+[node name="textboxUsername" type="LineEdit" parent="Backgrounb/textfields"]
+margin_left = 256.0
+margin_top = 192.0
+margin_right = 576.0
+margin_bottom = 248.0
+custom_fonts/font = SubResource( 3 )
+placeholder_text = "Username"
+
+[node name="textboxPassword" type="LineEdit" parent="Backgrounb/textfields"]
+margin_left = 256.0
+margin_top = 256.0
+margin_right = 576.0
+margin_bottom = 312.0
+custom_fonts/font = SubResource( 3 )
+secret = true
+placeholder_text = "Password"
+
+[node name="textboxClasscode" type="LineEdit" parent="Backgrounb/textfields"]
+margin_left = 256.0
+margin_top = 320.0
+margin_right = 576.0
+margin_bottom = 376.0
+custom_fonts/font = SubResource( 3 )
+placeholder_text = "Classcode"
+
+[node name="buttons" type="Node" parent="Backgrounb"]
+
+[node name="buttonLogin" type="Button" parent="Backgrounb/buttons"]
+margin_left = 680.0
+margin_top = 240.0
+margin_right = 936.0
+margin_bottom = 344.0
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 5 )
+text = "Login"
+
+[node name="buttonLogin2" type="Button" parent="Backgrounb/buttons"]
+margin_left = 296.0
+margin_top = 416.0
+margin_right = 525.0
+margin_bottom = 450.0
+custom_fonts/font = SubResource( 4 )
+text = "Create New Account"
+flat = true
