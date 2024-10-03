@@ -53,7 +53,7 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[node name="Control" type="Control"]
+[node name="Welcome" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -164,3 +164,4 @@ text = "Create New Account"
 flat = true
 
 [connection signal="pressed" from="Background/buttons/buttonLogin" to="." method="_on_buttonLogin_pressed"]
+[connection signal="pressed" from="Background/buttons/buttonCreateAcc" to="." method="_on_buttonCreateAcc_pressed"]
