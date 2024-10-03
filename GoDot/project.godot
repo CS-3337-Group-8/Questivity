@@ -8,10 +8,20 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "SQLiteWrapper",
+"language": "GDScript",
+"path": "res://addons/godot-sqlite/godot-sqlite-wrapper.gd"
+} ]
+_global_script_class_icons={
+"SQLiteWrapper": ""
+}
+
 [application]
 
 config/name="Cs 3337 - Game Lingo"
-run/main_scene="res://Control.tscn"
+run/main_scene="res://WelcomePage.tscn"
 config/icon="res://icon.png"
 
 [gui]
