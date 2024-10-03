@@ -148,27 +148,27 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="textboxs" type="Node" parent="."]
+[node name="textfields" type="Node" parent="."]
 
-[node name="textboxUsername" type="LineEdit" parent="textboxs"]
+[node name="textboxUsername" type="LineEdit" parent="textfields"]
 margin_left = 384.0
 margin_top = 216.0
 margin_right = 576.0
 margin_bottom = 256.0
 
-[node name="textboxTable" type="LineEdit" parent="textboxs"]
+[node name="textboxTable" type="LineEdit" parent="textfields"]
 margin_left = 384.0
 margin_top = 312.0
 margin_right = 576.0
 margin_bottom = 352.0
 
-[node name="textboxPassword" type="LineEdit" parent="textboxs"]
+[node name="textboxPassword" type="LineEdit" parent="textfields"]
 margin_left = 384.0
 margin_top = 408.0
 margin_right = 576.0
 margin_bottom = 448.0
 
-[node name="textboxClasscode" type="LineEdit" parent="textboxs"]
+[node name="textboxClasscode" type="LineEdit" parent="textfields"]
 margin_left = 384.0
 margin_top = 504.0
 margin_right = 576.0

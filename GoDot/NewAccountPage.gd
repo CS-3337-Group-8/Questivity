@@ -48,6 +48,5 @@ func _on_StudentButton_pressed():
 
 func _on_buttonSubmit_pressed():
 	emit_signal("CreateUser", textBoxUserName.text, textBoxPassWord.text, textBoxClassCode.text)
-	get_tree().change_scene("res://WelcomePage.tscn")
+	get_tree().change_scene("res://Welcome.tscn")
 
-e

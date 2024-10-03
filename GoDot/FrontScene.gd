@@ -2,8 +2,8 @@ extends Control
 
 #variables
 	#onready var
-onready var loginUser = $Backgrounb/textfields/textboxUsername
-onready var loginPassword = $Backgrounb/textfields/textboxPassword
+onready var loginUser = $Background/textfields/textboxUsername
+onready var loginPassword = $Background/textfields/textboxPassword
 	#Custom signals
 signal loginUser(user, password)
 	#database
