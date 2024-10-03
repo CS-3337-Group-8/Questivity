@@ -58,14 +58,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 
-[node name="Backgrounb" type="Panel" parent="."]
+[node name="Background" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 1 )
 
-[node name="labelTexts" type="Node" parent="Backgrounb"]
+[node name="labelTexts" type="Node" parent="Background"]
 
-[node name="textTitle" type="Label" parent="Backgrounb/labelTexts"]
+[node name="textTitle" type="Label" parent="Background/labelTexts"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 32.0
@@ -76,7 +76,7 @@ custom_fonts/font = SubResource( 2 )
 text = "Welcome to GameLingo"
 align = 1
 
-[node name="textUsername" type="Label" parent="Backgrounb/labelTexts"]
+[node name="textUsername" type="Label" parent="Background/labelTexts"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 64.0
@@ -86,7 +86,7 @@ margin_bottom = -367.0
 custom_fonts/font = SubResource( 2 )
 text = "Username:"
 
-[node name="textPassword" type="Label" parent="Backgrounb/labelTexts"]
+[node name="textPassword" type="Label" parent="Background/labelTexts"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 72.0
@@ -96,7 +96,7 @@ margin_bottom = -3.0
 custom_fonts/font = SubResource( 2 )
 text = "Password:"
 
-[node name="textClasscode" type="Label" parent="Backgrounb/labelTexts"]
+[node name="textClasscode" type="Label" parent="Background/labelTexts"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 64.0
@@ -106,7 +106,7 @@ margin_bottom = 61.0
 custom_fonts/font = SubResource( 2 )
 text = "Classcode:"
 
-[node name="textWelcome" type="Label" parent="Backgrounb/labelTexts"]
+[node name="textWelcome" type="Label" parent="Background/labelTexts"]
 margin_left = 328.0
 margin_top = 144.0
 margin_right = 477.0
@@ -114,9 +114,9 @@ margin_bottom = 185.0
 custom_fonts/font = SubResource( 7 )
 text = "Sign in"
 
-[node name="textfields" type="Node" parent="Backgrounb"]
+[node name="textfields" type="Node" parent="Background"]
 
-[node name="textboxUsername" type="LineEdit" parent="Backgrounb/textfields"]
+[node name="textboxUsername" type="LineEdit" parent="Background/textfields"]
 margin_left = 256.0
 margin_top = 192.0
 margin_right = 576.0
@@ -124,7 +124,7 @@ margin_bottom = 248.0
 custom_fonts/font = SubResource( 3 )
 placeholder_text = "Username"
 
-[node name="textboxPassword" type="LineEdit" parent="Backgrounb/textfields"]
+[node name="textboxPassword" type="LineEdit" parent="Background/textfields"]
 margin_left = 256.0
 margin_top = 256.0
 margin_right = 576.0
@@ -133,7 +133,7 @@ custom_fonts/font = SubResource( 3 )
 secret = true
 placeholder_text = "Password"
 
-[node name="textboxClasscode" type="LineEdit" parent="Backgrounb/textfields"]
+[node name="textboxClasscode" type="LineEdit" parent="Background/textfields"]
 margin_left = 256.0
 margin_top = 320.0
 margin_right = 576.0
@@ -141,9 +141,9 @@ margin_bottom = 376.0
 custom_fonts/font = SubResource( 3 )
 placeholder_text = "Classcode"
 
-[node name="buttons" type="Node" parent="Backgrounb"]
+[node name="buttons" type="Node" parent="Background"]
 
-[node name="buttonLogin" type="Button" parent="Backgrounb/buttons"]
+[node name="buttonLogin" type="Button" parent="Background/buttons"]
 margin_left = 680.0
 margin_top = 240.0
 margin_right = 936.0
@@ -154,7 +154,7 @@ custom_styles/pressed = SubResource( 6 )
 custom_styles/normal = SubResource( 5 )
 text = "Login"
 
-[node name="buttonCreateAcc" type="Button" parent="Backgrounb/buttons"]
+[node name="buttonCreateAcc" type="Button" parent="Background/buttons"]
 margin_left = 296.0
 margin_top = 416.0
 margin_right = 525.0
@@ -163,4 +163,4 @@ custom_fonts/font = SubResource( 4 )
 text = "Create New Account"
 flat = true
 
-[connection signal="pressed" from="Backgrounb/buttons/buttonLogin" to="." method="_on_buttonLogin_pressed"]
+[connection signal="pressed" from="Background/buttons/buttonLogin" to="." method="_on_buttonLogin_pressed"]

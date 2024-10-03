@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Cs 3337 - Game Lingo"
-run/main_scene="res://WelcomePage.tscn"
+run/main_scene="res://MainPage.tscn"
 config/icon="res://icon.png"
 
 [gui]
