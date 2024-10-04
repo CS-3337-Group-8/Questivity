@@ -42,4 +42,4 @@ ENV XDG_CONFIG_HOME /tmp/config
 RUN mkdir -p /tmp/cache && mkdir -p /tmp/data && mkdir -p /tmp/config
 
 # CMD to export based on the specified variables
-CMD rm -rf /build/output/* && /build/godot/Godot_v${GODOT_VERSION}_linux_headless.64 --export "${EXPORT_NAME}" --path "/build/src" "/build/output/${OUTPUT_FILENAME}"
+CMD rm -rf /build/output/* /build/output/.export-goes-here && /build/godot/Godot_v${GODOT_VERSION}_linux_headless.64 --export "${EXPORT_NAME}" --path "/build/src" "/build/output/${OUTPUT_FILENAME}"
