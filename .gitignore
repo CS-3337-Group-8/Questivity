@@ -1,3 +1,2 @@
 docker/web/*
-!docker/web/README.org
 .vscode/
