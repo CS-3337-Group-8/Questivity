@@ -7,7 +7,7 @@ services:
         ports:
             - "80:80"
         volumes:
-            - "./web:/usr/local/apache2/htdocs"
+            - "./web/http:/usr/local/apache2/htdocs"
         depends_on:
             - "api"
             - "godot-export"
@@ -58,4 +58,4 @@ services:
                 - "OUTPUT_FILENAME=index.html"
         volumes:
             - "../godot:/build/src"
-            - "./web:/build/output"
+            - "./web/http:/build/output"

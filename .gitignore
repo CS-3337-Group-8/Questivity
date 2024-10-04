@@ -1,2 +1,3 @@
-docker/web/*
+docker/web/http/*
+!docker/web/http/README.org
 .vscode/
