@@ -56,4 +56,4 @@ Purpose: Containerization platform for packaging and deploying the application.
 3. Start Docker Compose.
 
 ** Contributing
-- If you make changes, open a *Pull Request*.
+- Only collaborators Pull Requests will be accepted.
