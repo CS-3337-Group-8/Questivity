@@ -10,6 +10,7 @@ services:
             - "../html:/usr/local/apache2/htdocs"
         depends_on:
             - "api"
+            - "godot-export"
 
     db:
         image: "mysql"
@@ -45,3 +46,16 @@ services:
             - "DB_NAME=database"
         depends_on:
             - "db"
+
+    godot-export:
+        build:
+            context: .
+            dockerfile: "./godot-export/Dockerfile"
+            args:
+                - "GODOT_VERSION=3.6-stable"
+                - "GODOT_VERSION_DIR=3.6.stable"
+                - "EXPORT_NAME=HTML5"
+                - "OUTPUT_FILENAME=index.html"
+        volumes:
+            - "../godot:/build/src"
+            - "./web/html:/build/output"
