@@ -58,4 +58,4 @@ services:
                 - "OUTPUT_FILENAME=index.html"
         volumes:
             - "../godot:/build/src"
-            - "./web/html:/build/output"
+            - "./web:/build/output"
