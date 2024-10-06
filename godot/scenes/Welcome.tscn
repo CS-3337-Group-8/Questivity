@@ -73,7 +73,7 @@ margin_top = 32.0
 margin_right = -32.0
 margin_bottom = -527.0
 custom_fonts/font = SubResource( 2 )
-text = "Welcome to GameLingo"
+text = "Welcome to Questivity"
 align = 1
 
 [node name="textUsername" type="Label" parent="Background/labelTexts"]
