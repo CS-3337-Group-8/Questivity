@@ -1,61 +1,143 @@
-volumes:
+networks:
     database:
+        driver: bridge
+    proxy:
+        driver: bridge
+    canvas:
+        driver: bridge
 
 services:
+    # Web Server
     web:
-        image: "httpd:latest"
+        container_name: web
+        image: nginx:latest
+        restart: always
         ports:
             - "80:80"
         volumes:
-            - "./web/http:/usr/local/apache2/htdocs"
+            - ./web/html:/usr/share/nginx/html
+            - ./web/nginx.conf:/etc/nginx/nginx.conf
         depends_on:
-            - "api"
-            - "godot-export"
+            - heimdall
+            - db-api
+            - gd-export
+            - adminer
+            - docs
+        networks:
+            - database
+            - proxy
+            - canvas
 
+    # MySQL Server
     db:
-        image: "mysql"
-        container_name: "db"
-        restart: "always"
-        ports:
-            - "5000:3306"
+        container_name: db
+        image: mysql
+        restart: always
+        expose:
+            - "3306"
         volumes:
-            - "database:/var/lib/mysql"
-            - "./db:/docker-entrypoint-initdb.d" # Mount the init script directory
+            - ./db:/docker-entrypoint-initdb.d # Mount the init script directory
         environment:
-            - "MYSQL_DATABASE=database"
-            - "MYSQL_USER=user"
-            - "MYSQL_PASSWORD=password"
-            - "MYSQL_ROOT_PASSWORD=rootpassword"
+            MYSQL_DATABASE: database
+            MYSQL_USER: user
+            MYSQL_PASSWORD: password
+            MYSQL_ROOT_PASSWORD: rootpassword
+        networks:
+            - database
 
-    canvas:
-        image: "lbjay/canvas-docker"
-        container_name: "canvas"
-        restart: "always"
-        ports:
-            - "3000:3000"
-
-    api:
-        build: ./api # Pointing to the directory where the Node.js app is located
-        restart: "always"
-        ports:
-            - "4000:3000"
+    # Node.js Server running database-api
+    db-api:
+        container_name: db-api
+        build: ./db-api # Pointing to the directory where the Node.js app is located
+        restart: always
+        expose:
+            - "3000"
         environment:
-            - "DB_HOST=db"
-            - "DB_USER=user"
-            - "DB_PASSWORD=password"
-            - "DB_NAME=database"
+            DB_HOST: db
+            DB_USER: user
+            DB_PASSWORD: password
+            DB_NAME: database
         depends_on:
-            - "db"
+            - db
+        networks:
+            - database
 
-    godot-export:
+    # Canvas LMS Server for Testing
+    canvas:
+        container_name: canvas
+        image: lbjay/canvas-docker
+        restart: always
+        expose:
+            - "3000"
+        networks:
+            - canvas
+
+    # Automatically Exports Godot project to HTML before starting web server
+    gd-export:
+        container_name: gd-export
         build:
             context: .
-            dockerfile: "./godot-export/Dockerfile"
+            dockerfile: ./gd-export/Dockerfile
             args:
-                - "GODOT_VERSION=3.6-stable"
-                - "GODOT_VERSION_DIR=3.6.stable"
-                - "EXPORT_NAME=HTML5"
-                - "OUTPUT_FILENAME=index.html"
+                GODOT_VERSION: 3.6-stable
+                GODOT_VERSION_DIR: 3.6.stable
+                EXPORT_NAME: HTML5
+                OUTPUT_FILENAME: index.html
+        restart: no
         volumes:
-            - "../godot:/build/src"
-            - "./web/http:/build/output"
+            - ../godot:/build/src
+            - ./web/html/questivity:/build/output
+
+    dozzle:
+        container_name: dozzle
+        image: amir20/dozzle:latest
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        expose:
+            - "8080"
+        networks:
+            - proxy
+
+    # Adminer for accessing DB with a web interface
+    adminer:
+        container_name: adminer
+        restart: always
+        image: adminer
+        expose:
+            - "8080"
+        networks:
+            - database
+
+    docs:
+        container_name: docs
+        image: awesometic/docusaurus
+        restart: always
+        expose:
+            - "80"
+        volumes:
+            - ./docs:/docusarurus
+        environment:
+            TARGET_UID: 1000
+            TARGET_GID: 1000
+            AUTO_UPDATE: true
+            WEBSITE_NAME: "Questivity Docs"
+            TEMPLATE: classic
+        networks:
+            - proxy
+
+    heimdall:
+        container_name: heimdall
+        image: linuxserver/heimdall
+        restart: unless-stopped
+        environment:
+            - PUID=1000
+            - PGID=1000
+        volumes:
+            - ./heimdall/app.sqlite:/config/www/app.sqlite
+            - ./heimdall/backgrounds:/config/www/backgrounds
+            - ./heimdall/icons:/config/www/icons
+
+        expose:
+            - "80"
+        networks:
+            - proxy

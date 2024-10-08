@@ -1,3 +1,0 @@
-Our Docker Compose config now automatically exports the Godot Project.
-This means to re-export you have to navigate to the docker folder and run:
-docker-compose up -d --remove-orphans
