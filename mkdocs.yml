@@ -1,0 +1,24 @@
+site_name: Questivity LTI
+theme:
+    name: cinder
+repo_url: https://github.com/CS-3337-Group-8/Questivity"
+nav:
+    - About: page2.md
+    - API: page3.md
+
+plugins:
+    - search
+    - mermaid2:
+          version: "9.4.3"
+          arguments:
+              theme: "dark"
+              themeVariables:
+                  primaryColor: "#BB2528"
+                  primaryTextColor: "#fff"
+                  primaryBorderColor: "#7C0000"
+                  lineColor: "#F8B229"
+                  secondaryColor: "#006100"
+                  tertiaryColor: "#fff"
+
+copyright: |
+    &copy; 2024 <a href="https://github.com/CS-3337-Group-8" target="_blank" rel="noopener">CS-3337-Group-8</a>
