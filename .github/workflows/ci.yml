@@ -22,12 +22,23 @@ jobs:
               with:
                   python-version: 3.x
 
-            # Install dependencies, including the Mermaid plugin
+            # Install dependencies
             - run: |
                   pip install mkdocs-material
                   pip install mkdocs-cinder
                   pip install pillow cairosvg
                   pip install mkdocs-mermaid2-plugin
 
+            # Build the site
+            - name: Build the MkDocs site
+              run: mkdocs build
+
             # Deploy to GitHub Pages
-            - run: mkdocs gh-deploy --force
+            - name: Deploy to GitHub Pages
+              run: mkdocs gh-deploy --force
+
+            # Verify the gh-pages branch was created
+            - name: Verify Deployment
+              run: |
+                  git fetch
+                  git branch -a
