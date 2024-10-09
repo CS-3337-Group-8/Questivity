@@ -1,24 +1,29 @@
-name: ci
+name: Deploy MkDocs Site
+
 on:
     push:
         branches:
             - master
             - main
+
 permissions:
     contents: write
+
 jobs:
     deploy:
         runs-on: ubuntu-latest
+
         steps:
+            # Checkout the repository files
             - uses: actions/checkout@v3
+
+            # Set up Python
             - uses: actions/setup-python@v4
               with:
                   python-version: 3.x
-            - uses: actions/cache@v2
-              with:
-                  key: ${{ github.ref }}
-                  path: .cache
-            - run: pip install mkdocs-material
-            - run: pip install mkdocs-cinder
-            - run: pip install pillow cairosvg
+
+            # Install dependencies
+            - run: pip install mkdocs-material mkdocs-cinder pillow cairosvg
+
+            # Deploy to GitHub Pages
             - run: mkdocs gh-deploy --force
