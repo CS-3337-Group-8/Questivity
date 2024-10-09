@@ -22,8 +22,12 @@ jobs:
               with:
                   python-version: 3.x
 
-            # Install dependencies
-            - run: pip install mkdocs-material mkdocs-cinder pillow cairosvg
+            # Install dependencies, including the Mermaid plugin
+            - run: |
+                  pip install mkdocs-material
+                  pip install mkdocs-cinder
+                  pip install pillow cairosvg
+                  pip install mkdocs-mermaid2-plugin
 
             # Deploy to GitHub Pages
             - run: mkdocs gh-deploy --force
