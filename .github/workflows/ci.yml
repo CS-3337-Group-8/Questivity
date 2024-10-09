@@ -1,44 +1,23 @@
-name: Deploy MkDocs Site
-
+name: ci
 on:
     push:
         branches:
             - master
             - main
-
 permissions:
     contents: write
-
 jobs:
     deploy:
         runs-on: ubuntu-latest
-
         steps:
-            # Checkout the repository files
             - uses: actions/checkout@v3
-
-            # Set up Python
             - uses: actions/setup-python@v4
               with:
                   python-version: 3.x
-
-            # Install dependencies
-            - run: |
-                  pip install mkdocs-material
-                  pip install mkdocs-cinder
-                  pip install pillow cairosvg
-                  pip install mkdocs-mermaid2-plugin
-
-            # Build the site
-            - name: Build the MkDocs site
-              run: mkdocs build
-
-            # Deploy to GitHub Pages
-            - name: Deploy to GitHub Pages
-              run: mkdocs gh-deploy --force
-
-            # Verify the gh-pages branch was created
-            - name: Verify Deployment
-              run: |
-                  git fetch
-                  git branch -a
+            - uses: actions/cache@v2
+              with:
+                  key: ${{ github.ref }}
+                  path: .cache
+            - run: pip install mkdocs-material
+            - run: pip install pillow cairosvg
+            - run: mkdocs gh-deploy --force
