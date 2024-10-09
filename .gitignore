@@ -1,3 +1,2 @@
 docker/web/html/questivity/*
-!docker/web/html/export-here
 .vscode/
