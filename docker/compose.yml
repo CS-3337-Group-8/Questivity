@@ -137,7 +137,6 @@ services:
         environment:
             PUID: 1000
             PGID: 1000
-
         volumes:
             - ./heimdall/app.sqlite:/config/www/app.sqlite
             - ./heimdall/backgrounds:/config/www/backgrounds
