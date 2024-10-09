@@ -38,8 +38,6 @@ services:
         restart: always
         expose:
             - "3306"
-        ports:
-            - "3313:3306"
         volumes:
             - db:/var/lib/mysql
             - ./db:/docker-entrypoint-initdb.d # Mount the init script directory
@@ -48,6 +46,7 @@ services:
             MYSQL_USER: user
             MYSQL_PASSWORD: password
             MYSQL_ROOT_PASSWORD: rootpassword
+            TZ: "America/Los_Angeles"
         networks:
             - database
 
@@ -136,8 +135,9 @@ services:
         image: linuxserver/heimdall
         restart: unless-stopped
         environment:
-            - PUID=1000
-            - PGID=1000
+            PUID: 1000
+            PGID: 1000
+
         volumes:
             - ./heimdall/app.sqlite:/config/www/app.sqlite
             - ./heimdall/backgrounds:/config/www/backgrounds
