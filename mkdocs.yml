@@ -2,7 +2,7 @@ site_name: Questivity LTI
 site_url: https://cs-3337-group-8.github.io/Questivity/
 
 theme:
-    name: material
+    name: cinder
 
 repo_url: https://github.com/CS-3337-Group-8/Questivity"
 
