@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>API Endpoints</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            h1 {
+                color: #333;
+            }
+            h2 {
+                color: #555;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            li {
+                margin: 10px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>API Documentation</h1>
+        <p>Welcome to the API server. Below are the available endpoints:</p>
+
+        <h2>Accounts</h2>
+        <ul>
+            <li><a href="/db/accounts">GET /db/accounts</a> - Retrieve all accounts</li>
+            <li>
+                <a href="/db/accounts/:id">GET /db/accounts/:id</a> - Retrieve a specific account
+            </li>
+            <li><a href="/db/accounts">POST /db/accounts</a> - Create a new account</li>
+            <li>
+                <a href="/db/accounts/:id">PUT /db/accounts/:id</a> - Update an existing account
+            </li>
+            <li><a href="/db/accounts/:id">DELETE /db/accounts/:id</a> - Delete an account</li>
+        </ul>
+
+        <h2>Achievements</h2>
+        <ul>
+            <li><a href="/db/achievements">GET /db/achievements</a> - Retrieve all achievements</li>
+            <li>
+                <a href="/db/achievements/:id">GET /db/achievements/:id</a> - Retrieve a specific
+                achievement
+            </li>
+            <li><a href="/db/achievements">POST /db/achievements</a> - Create a new achievement</li>
+            <li>
+                <a href="/db/achievements/:id">PUT /db/achievements/:id</a> - Update an existing
+                achievement
+            </li>
+            <li>
+                <a href="/db/achievements/:id">DELETE /db/achievements/:id</a> - Delete an
+                achievement
+            </li>
+        </ul>
+
+        <h2>Game Scores</h2>
+        <ul>
+            <li><a href="/db/game_scores">GET /db/game_scores</a> - Retrieve all game scores</li>
+            <li>
+                <a href="/db/game_scores/:id">GET /db/game_scores/:id</a> - Retrieve a specific game
+                score
+            </li>
+            <li><a href="/db/game_scores">POST /db/game_scores</a> - Create a new game score</li>
+            <li>
+                <a href="/db/game_scores/:id">PUT /db/game_scores/:id</a> - Update an existing game
+                score
+            </li>
+            <li>
+                <a href="/db/game_scores/:id">DELETE /db/game_scores/:id</a> - Delete a game score
+            </li>
+        </ul>
+
+        <h2>Courses</h2>
+        <ul>
+            <li><a href="/db/courses">GET /db/courses</a> - Retrieve all courses</li>
+            <li><a href="/db/courses/:id">GET /db/courses/:id</a> - Retrieve a specific course</li>
+            <li><a href="/db/courses">POST /db/courses</a> - Create a new course</li>
+            <li><a href="/db/courses/:id">PUT /db/courses/:id</a> - Update an existing course</li>
+            <li><a href="/db/courses/:id">DELETE /db/courses/:id</a> - Delete a course</li>
+        </ul>
+
+        <!-- Add other sections as needed -->
+    </body>
+</html>

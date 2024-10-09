@@ -38,8 +38,6 @@ services:
         restart: always
         expose:
             - "3306"
-        ports:
-            - "3313:3306"
         volumes:
             - db:/var/lib/mysql
             - ./db:/docker-entrypoint-initdb.d # Mount the init script directory
