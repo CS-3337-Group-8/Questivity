@@ -14,7 +14,7 @@ services:
     web:
         container_name: web
         image: nginx:latest
-        restart: always
+        restart: unless-stopped
         ports:
             - "80:80"
         volumes:
@@ -25,7 +25,6 @@ services:
             - db-api
             - gd-export
             - adminer
-            - docs
         networks:
             - database
             - proxy
@@ -35,7 +34,7 @@ services:
     db:
         container_name: db
         image: mysql
-        restart: always
+        restart: unless-stopped
         expose:
             - "3306"
         volumes:
@@ -54,7 +53,7 @@ services:
     db-api:
         container_name: db-api
         build: ./db-api # Pointing to the directory where the Node.js app is located
-        restart: always
+        restart: unless-stopped
         expose:
             - "3000"
         environment:
@@ -62,6 +61,7 @@ services:
             DB_USER: user
             DB_PASSWORD: password
             DB_NAME: database
+            TZ: "America/Los_Angeles"
         depends_on:
             - db
         networks:
@@ -71,7 +71,7 @@ services:
     canvas:
         container_name: canvas
         image: lbjay/canvas-docker
-        restart: always
+        restart: unless-stopped
         expose:
             - "3000"
         networks:
@@ -95,6 +95,7 @@ services:
 
     dozzle:
         container_name: dozzle
+        restart: unless-stopped
         image: amir20/dozzle:latest
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
@@ -106,29 +107,12 @@ services:
     # Adminer for accessing DB with a web interface
     adminer:
         container_name: adminer
-        restart: always
+        restart: unless-stopped
         image: adminer
         expose:
             - "8080"
         networks:
             - database
-
-    docs:
-        container_name: docs
-        image: awesometic/docusaurus
-        restart: always
-        expose:
-            - "80"
-        volumes:
-            - ./docs:/docusarurus
-        environment:
-            TARGET_UID: 1000
-            TARGET_GID: 1000
-            AUTO_UPDATE: true
-            WEBSITE_NAME: "Questivity Docs"
-            TEMPLATE: classic
-        networks:
-            - proxy
 
     heimdall:
         container_name: heimdall

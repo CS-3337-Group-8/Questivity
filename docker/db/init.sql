@@ -1,12 +1,6 @@
-DROP TABLE IF EXISTS Game_Scores;
-DROP TABLE IF EXISTS Account_Achievements;
-DROP TABLE IF EXISTS Achievements;
-DROP TABLE IF EXISTS Student_Progress;
-DROP TABLE IF EXISTS Student_Courses;
-DROP TABLE IF EXISTS Instructor_Courses;
-DROP TABLE IF EXISTS Courses;
-DROP TABLE IF EXISTS Account_Data;
-DROP TABLE IF EXISTS Accounts;
+DROP DATABSE IF EXISTS Questivity;
+
+USE Questivity;
 
 CREATE TABLE Accounts (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
