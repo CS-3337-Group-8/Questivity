@@ -1,15 +1,32 @@
 const express = require("express")
 const mysql = require("mysql2")
-const bodyParser = require("body-parser")
 const cors = require("cors")
 
 const app = express()
 const port = 3000
 
+// Randomly generated API key
+const validApiKeys = new Set(["9a1442ec-0d0a-4b76-9b1a-38a526d51f2a"])
+
 // Middleware
+const apiKeyAuth = (req, res, next) => {
+    const apiKey = req.headers["x-api-key"]
+    if (!apiKey || !validApiKeys.has(apiKey)) {
+        return res.status(401).json({ message: "Unauthorized" })
+    }
+    next()
+}
+
+const requestLogger = (req, res, next) => {
+    const now = new Date()
+    console.log(`${now.toISOString()} - ${req.method} ${req.url}`)
+    next()
+}
+
 app.use(cors())
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(apiKeyAuth)
+app.use(requestLogger)
 
 // Database connection
 const connection = mysql.createConnection({
@@ -24,18 +41,24 @@ connection.connect((err) => {
     console.log("Connected to MySQL Database")
 })
 
+const query = (res, query, params = []) => {
+    connection.query(query, params, (error, results) => {
+        if (error) return res.status(500).send(error)
+        res.json(results)
+    })
+}
+
 // Root endpoint
 app.get("/", (req, res) => {
-    res.send("Welcome to the API! Use the endpoints to interact with the database.")
+    res.send("Database API Version 1.0")
 })
 
 // Accounts endpoints
 app.get("/accounts", (req, res) => {
-    connection.query("SELECT * FROM Accounts", (error, results) => {
-        if (error) return res.status(500).send(error)
-        res.json(results)
-    })
+    query(res, "SELECT * FROM Accounts")
 })
+
+app.post("/accounts", (req, res) => {})
 
 app.post("/accounts", (req, res) => {
     const { username, password_hash, is_instructor } = req.body
