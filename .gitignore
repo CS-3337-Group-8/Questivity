@@ -2,3 +2,4 @@ docker/web/html/questivity/*
 !docker/web/html/questivity/export-here
 .vscode/
 venv/
+__pycache__/

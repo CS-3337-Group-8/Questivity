@@ -19,6 +19,7 @@ services:
         depends_on:
             - heimdall
             - db-api
+            - questivity-server
             - gd-export
             - adminer
         networks:
@@ -63,6 +64,19 @@ services:
             - db
         networks:
             - database
+
+    questivity-server:
+        container_name: questivity-server
+        restart: unless-stopped
+        build: ./server-api
+        expose:
+            - "5000"
+        volumes:
+            - ./server-api/src:/app
+        environment:
+            - FLASK_ENV=development
+        networks:
+            - proxy
 
     canvas:
         container_name: canvas
