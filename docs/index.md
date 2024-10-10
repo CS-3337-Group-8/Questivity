@@ -1,52 +1,27 @@
-# Homepage
+# Questivity
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Welcome to **Questivity**, a gamification platform designed to seamlessly connect with Canvas LMS networks. Our platform enhances learning experiences by integrating gamified elements into educational environments.
 
-## Code Annotation Examples
+## Overview
 
-### Codeblocks
+Questivity utilizes the Learning Tools Interoperability (LTI) standard, enabling smooth integration with various Learning Management Systems (LMS). With a focus on user engagement, Questivity aims to foster an interactive learning atmosphere through games, quizzes, and other engaging activities.
 
-Some `code` goes here
+## Architecture
 
-### Plain codeblock
+Questivity is built using a microservices architecture, allowing for scalability and flexibility. Below is an overview of our service architecture:
 
-a plain codeblock:
+### Database Services
 
-```js
+-   **Database**: A MySQL database service that stores user data, application state, and more.
 
-Some code here
-function myFunc() {
-    console.log("Hello world")
-}
+### Web Services
 
-// some comment
-```
+-   **Web Server**: An Nginx-based web server that serves the frontend application and static files.
 
-```mermaid
-classDiagram
-  Person <|-- Student
-  Person <|-- Professor
-  Person : +String name
-  Person : +String phoneNumber
-  Person : +String emailAddress
-  Person: +purchaseParkingPass()
-  Address <-- Person:lives at
-  class Student{
-    +int studentNumber
-    +int averageMark
-    +isEligibleToEnrol()
-    +getSeminarsTaken()
-  }
-  class Professor{
-    +int salary
-  }
-  class Address{
-    +String street
-    +String city
-    +String state
-    +int postalCode
-    +String country
-    -validate()
-    +outputAsLabel()
-  }
-```
+### API Services
+
+-   **QuestivityDB API**: A RESTful API that facilitates communication between the frontend and the database, providing access to essential data and operations.
+
+### Export Services
+
+-   **GD Export**: A service responsible for exporting content from Godot to HTML5, enabling seamless access to gamified experiences in a web browser.

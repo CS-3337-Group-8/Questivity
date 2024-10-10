@@ -6,11 +6,7 @@ networks:
     canvas:
         driver: bridge
 
-volumes:
-    db:
-
 services:
-    # Web Server
     web:
         container_name: web
         image: nginx:latest
@@ -30,7 +26,6 @@ services:
             - proxy
             - canvas
 
-    # MySQL Server
     db:
         container_name: db
         image: mysql
@@ -38,8 +33,7 @@ services:
         expose:
             - "3306"
         volumes:
-            - db:/var/lib/mysql
-            - ./db:/docker-entrypoint-initdb.d # Mount the init script directory
+            - ./db:/docker-entrypoint-initdb.d
         environment:
             MYSQL_DATABASE: database
             MYSQL_USER: user
@@ -48,11 +42,12 @@ services:
             TZ: "America/Los_Angeles"
         networks:
             - database
+        depends_on:
+            - dozzle
 
-    # Node.js Server running database-api
     db-api:
         container_name: db-api
-        build: ./db-api # Pointing to the directory where the Node.js app is located
+        build: ./db-api
         restart: unless-stopped
         expose:
             - "3000"
@@ -62,12 +57,13 @@ services:
             DB_PASSWORD: password
             DB_NAME: database
             TZ: "America/Los_Angeles"
+            PORT: "3000"
+            API_KEY: 9a1442ec-0d0a-4b76-9b1a-38a526d51f2a
         depends_on:
             - db
         networks:
             - database
 
-    # Canvas LMS Server for Testing
     canvas:
         container_name: canvas
         image: lbjay/canvas-docker
@@ -77,7 +73,6 @@ services:
         networks:
             - canvas
 
-    # Automatically Exports Godot project to HTML before starting web server
     gd-export:
         container_name: gd-export
         build:
@@ -104,7 +99,6 @@ services:
         networks:
             - proxy
 
-    # Adminer for accessing DB with a web interface
     adminer:
         container_name: adminer
         restart: unless-stopped
