@@ -9,7 +9,7 @@ The QuestivityDB API provides endpoints for managing users, courses, achievement
 ## Base URL
 
 ```
-https://api.{your-domain}/db/
+api.{your-domain}/db/
 
 ```
 
