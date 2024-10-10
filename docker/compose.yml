@@ -5,6 +5,8 @@ networks:
         driver: bridge
     canvas:
         driver: bridge
+    internal-api-bridge:
+        driver: bridge
 
 services:
     web:
@@ -18,12 +20,12 @@ services:
             - ./web/nginx.conf:/etc/nginx/nginx.conf
         depends_on:
             - heimdall
-            - db-api
+            # - db-api
             - questivity-server
             - gd-export
             - adminer
         networks:
-            - database
+            # - database
             - proxy
             - canvas
 
@@ -64,6 +66,7 @@ services:
             - db
         networks:
             - database
+            - internal-api-bridge
 
     questivity-server:
         container_name: questivity-server
@@ -74,9 +77,11 @@ services:
         volumes:
             - ./server-api/src:/app
         environment:
-            - FLASK_ENV=development
+            FLASK_ENV: development
+            DB_API_KEY: 9a1442ec-0d0a-4b76-9b1a-38a526d51f2a
         networks:
             - proxy
+            - internal-api-bridge
 
     canvas:
         container_name: canvas
@@ -121,6 +126,7 @@ services:
             - "8080"
         networks:
             - database
+            - proxy
 
     heimdall:
         container_name: heimdall
