@@ -6,12 +6,15 @@ theme:
 
 repo_url: https://github.com/CS-3337-Group-8/Questivity"
 
+extra:
+    include_search: false
+
 nav:
-    - About: page2.md
-    - API: page3.md
+    - QuestivityDB: db-api.md
+    - NGINX: nginx.md
+    - Docker: docker.md
 
 plugins:
-    - search
     - mermaid2:
           version: "9.4.3"
           arguments:
@@ -23,6 +26,9 @@ plugins:
                   lineColor: "#F8B229"
                   secondaryColor: "#006100"
                   tertiaryColor: "#fff"
+    - panzoom:
+          mermaid: true
+          images: false
 
 copyright: |
     &copy; 2024 <a href="https://github.com/CS-3337-Group-8" target="_blank" rel="noopener">CS-3337-Group-8</a>
