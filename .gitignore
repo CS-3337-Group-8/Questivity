@@ -1,4 +1,5 @@
-docker/web/html/questivity/*
-!docker/web/html/questivity/export-here
+docker/godot-export/html/*
+!docker/godot-export/html/export-here
 .vscode/
 venv/
+__pycache__/
