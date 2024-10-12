@@ -22,32 +22,6 @@ func _ready():
 	#addDataToExistingDatabase()
 	#readFromDatabase()
 	
-	
-#func activateDatabaseEdit():
-#	database = SQLite.new()
-#	database.path = databasePath
-#
-#func addDataToExistingDatabase(): #create an sql file table sample
-#	database.open_db()
-#	var tableName = "accountInfo"
-#	var accountDictionary : Dictionary = Dictionary()
-#	accountDictionary["username"] = "MinecraftSteve"
-#	accountDictionary["password"] = "schoolsuck2024"
-#	accountDictionary["classcode"] = 1234
-#
-#	database.insert_row(tableName, accountDictionary)
-#
-#func readFromDatabase():
-#	database.open_db()
-#	var tableName = "accountInfo"
-#	database.query("select * from " + tableName + ";")
-#	for i in range(0, database.query_result.size()):
-#		print("Qurey results ", database.query_result[i]["username"], " ", database.query_result[i]["password"], " ", database.query_result[i]["classcode"])
-	
-	#run the function to create the table with the variable you just made
-	#.create_table(table Name, table)
-	
-	#("accountInfo", table)
 
 #Login button
 func _on_buttonLogin_pressed():

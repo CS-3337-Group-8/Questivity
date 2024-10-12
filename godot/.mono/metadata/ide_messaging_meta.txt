@@ -1,2 +1,2 @@
-﻿56800
+﻿60059
 C:/Users/NavaE/OneDrive/Documents/Godot_v3.6-stable_mono_win64/Godot_v3.6-stable_mono_win64/Godot_v3.6-stable_mono_win64.exe
