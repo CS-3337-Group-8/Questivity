@@ -25,9 +25,9 @@ def fetch(url, method='GET', headers=None, json_data=None):
 def home():
     return "Questivity Server Version 1.0.0"
 
-@app.route('/fetch-data', methods=['GET'])
+@app.route('/users', methods=['GET'])
 def fetch_data():    
-    return fetch(external_api_url, method='GET', headers=headers)
+    return fetch(external_api_url + '/users', method='GET', headers=headers)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
