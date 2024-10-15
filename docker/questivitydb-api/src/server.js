@@ -24,7 +24,7 @@ const requestLogger = (req, res, next) => {
 
 app.use(cors())
 app.use(express.json())
-app.use(apiKeyAuth)
+//app.use(apiKeyAuth)
 app.use(requestLogger)
 app.use("/", routes)
 

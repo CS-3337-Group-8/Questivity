@@ -67,6 +67,11 @@ router.post("/users", (req, res) => {
     ])
 })
 
+router.get("/users/by-username/:username", (req, res) => {
+    const sql = "SELECT * FROM users WHERE username = ?"
+    query(res, sql, [req.params.username])
+})
+
 router.get("/users/instructors", (req, res) => {
     query(res, "SELECT * FROM users WHERE is_instructor = 1")
 })
