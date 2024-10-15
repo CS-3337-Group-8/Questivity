@@ -21,8 +21,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Cs 3337 - Game Lingo"
-run/main_scene="res://scenes/Debugger.tscn"
+run/main_scene="res://scenes/Welcome.tscn"
 config/icon="res://resources/icon.png"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [gui]
 

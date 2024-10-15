@@ -18,6 +18,8 @@ onready var textCreateAcc = $labels/textCreateAcc
 onready var textBoxUserName = $textfields/textboxUsername
 onready var textBoxPassWord = $textfields/textboxPassword
 onready var textBoxClassCode = $textfields/textboxClasscode
+	#HTTPRequest
+
 	#Signals
 signal CreateUser(user, password, classcode)
 	
