@@ -1,114 +1,107 @@
 networks:
-    database:
+    database-access:
         driver: bridge
-    proxy:
+    proxy-network:
         driver: bridge
-    canvas:
+    canvas-access:
         driver: bridge
     internal-api-bridge:
         driver: bridge
 
 services:
-    web:
-        container_name: web
+    nginx-webserver:
+        container_name: nginx-webserver
         image: nginx:latest
         restart: unless-stopped
         ports:
             - "80:80"
         volumes:
-            - ./web/html:/usr/share/nginx/html
-            - ./web/nginx.conf:/etc/nginx/nginx.conf
+            - ./godot-export/html/:/usr/share/nginx/html/questivity/
+            - ./nginx/nginx.conf/:/etc/nginx/nginx.conf
         depends_on:
-            - heimdall
-            # - db-api
+            - homepage
             - questivity-server
-            - gd-export
+            - godot-export
             - adminer
         networks:
-            # - database
-            - proxy
-            - canvas
+            - proxy-network
+            - canvas-access
 
-    db:
-        container_name: db
-        image: mysql
+    mysql-database:
+        container_name: mysql-database
+        image: mysql:latest
         restart: unless-stopped
         expose:
             - "3306"
         volumes:
-            - ./db:/docker-entrypoint-initdb.d
+            - ./mysql/:/docker-entrypoint-initdb.d
         environment:
-            MYSQL_DATABASE: database
-            MYSQL_USER: user
-            MYSQL_PASSWORD: password
-            MYSQL_ROOT_PASSWORD: rootpassword
+            MYSQL_USER: mysql-user
+            MYSQL_PASSWORD: mysql-pass
+            MYSQL_ROOT_PASSWORD: mysql-root
+            MYSQL_DATABASE: questivity-data
             TZ: "America/Los_Angeles"
         networks:
-            - database
+            - database-access
         depends_on:
-            - dozzle
+            - dozzle-logs
 
-    db-api:
-        container_name: db-api
-        build: ./db-api
+    questivitydb-api:
+        container_name: questivitydb-api
+        build: ./questivitydb-api
         restart: unless-stopped
         expose:
             - "3000"
         environment:
-            DB_HOST: db
-            DB_USER: user
-            DB_PASSWORD: password
-            DB_NAME: database
+            DB_HOST: mysql-database
+            DB_USER: mysql-user
+            DB_PASSWORD: mysql-pass
+            DB_NAME: questivity-data
             TZ: "America/Los_Angeles"
             PORT: "3000"
             API_KEY: 9a1442ec-0d0a-4b76-9b1a-38a526d51f2a
         depends_on:
-            - db
+            - mysql-database
         networks:
-            - database
+            - database-access
             - internal-api-bridge
 
     questivity-server:
         container_name: questivity-server
         restart: unless-stopped
-        build: ./server-api
+        build: ./questivity-server
         expose:
             - "5000"
         volumes:
-            - ./server-api/src:/app
+            - ./questivity-server/src:/app
         environment:
             FLASK_ENV: development
             DB_API_KEY: 9a1442ec-0d0a-4b76-9b1a-38a526d51f2a
+        depends_on:
+            - questivitydb-api
         networks:
-            - proxy
+            - proxy-network
             - internal-api-bridge
 
-    canvas:
-        container_name: canvas
+    canvas-lms:
+        container_name: canvas-lms
         image: lbjay/canvas-docker
         restart: unless-stopped
         expose:
             - "3000"
         networks:
-            - canvas
+            - canvas-access
 
-    gd-export:
-        container_name: gd-export
-        build:
-            context: .
-            dockerfile: ./gd-export/Dockerfile
-            args:
-                GODOT_VERSION: 3.6-stable
-                GODOT_VERSION_DIR: 3.6.stable
-                EXPORT_NAME: HTML5
-                OUTPUT_FILENAME: index.html
+    godot-export:
+        container_name: godot-export
+        image: beijingsoftware/godot-export:3.6-stable-html5
         restart: no
         volumes:
             - ../godot:/build/src
-            - ./web/html/questivity:/build/output
+            - ./godot-export/html/:/build/output
 
-    dozzle:
-        container_name: dozzle
+    dozzle-logs:
+        container_name: dozzle-logs
         restart: unless-stopped
         image: amir20/dozzle:latest
         volumes:
@@ -116,7 +109,7 @@ services:
         expose:
             - "8080"
         networks:
-            - proxy
+            - proxy-network
 
     adminer:
         container_name: adminer
@@ -125,22 +118,21 @@ services:
         expose:
             - "8080"
         networks:
-            - database
-            - proxy
+            - database-access
+            - proxy-network
 
-    heimdall:
-        container_name: heimdall
+    homepage:
+        container_name: homepage
         image: linuxserver/heimdall
         restart: unless-stopped
         environment:
-            PUID: 1000
-            PGID: 1000
+            PUID: "1000"
+            PGID: "1000"
         volumes:
-            - ./heimdall/app.sqlite:/config/www/app.sqlite
-            - ./heimdall/backgrounds:/config/www/backgrounds
-            - ./heimdall/icons:/config/www/icons
-
+            - ./homepage/app.sqlite:/config/www/app.sqlite
+            - ./homepage/backgrounds:/config/www/backgrounds
+            - ./homepage/icons:/config/www/icons
         expose:
             - "80"
         networks:
-            - proxy
+            - proxy-network

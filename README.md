@@ -1,8 +1,4 @@
-* Project Overview
+# Questivity
 This project is designed to enhance the educational experience by integrating a gamification learning application with Canvas LMS using LTI. Built in the Godot game engine and deployed as a web application, this software transforms traditional learning modules into engaging and interactive games.
 
-* Project Architecture
-The architecture of our application consists of several key components that work together to provide a seamless user experience. Below are the primary layers of the system:
-
-* Contributing
-- Only collaborators Pull Requests will be accepted.
+### [Visit Our Website](https://cs-3337-group-8.github.io/Questivity/)

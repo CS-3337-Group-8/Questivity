@@ -1,10 +1,10 @@
 FROM debian:bullseye-slim
 
 # Define build arguments
-ARG GODOT_VERSION
-ARG GODOT_VERSION_DIR
-ARG EXPORT_NAME
-ARG OUTPUT_FILENAME
+ARG GODOT_VERSION=3.6-stable
+ARG GODOT_VERSION_DIR=3.6.stable
+ARG EXPORT_NAME=HTML5
+ARG OUTPUT_FILENAME=index.html
 ARG GODOT_ARCHIVE=Godot_v${GODOT_VERSION}_linux_headless.64.zip
 ARG EXPORT_TEMPLATES=Godot_v${GODOT_VERSION}_mono_export_templates.tpz
 
@@ -36,9 +36,9 @@ RUN wget -q https://github.com/godotengine/godot/releases/download/${GODOT_VERSI
     && rm /tmp/export-templates.tpz
 
 # Setup environment variables
-ENV XDG_CACHE_HOME /tmp/cache
-ENV XDG_DATA_HOME /tmp/data
-ENV XDG_CONFIG_HOME /tmp/config
+ENV XDG_CACHE_HOME=/tmp/cache
+ENV XDG_DATA_HOME=/tmp/data
+ENV XDG_CONFIG_HOME=/tmp/config
 RUN mkdir -p /tmp/cache && mkdir -p /tmp/data && mkdir -p /tmp/config
 
 # CMD to export based on the specified variables

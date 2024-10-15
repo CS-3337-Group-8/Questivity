@@ -1,53 +1,22 @@
 extends Control
 #variables
-	#onready var
-onready var result = $labels/TextSQLResults
-onready var username = $textboxs/textboxUsername
-onready var password = $textboxs/textboxPassword
-onready var classcode = $textboxs/textboxClasscode
-onready var table = $textboxs/textboxTable
-
-	#constructs
-const SQLite = preload("res://addons/godot-sqlite/bin/gdsqlite.gdns")
-	#Actual Variables
-var database #create database
-var databasePath = "res://databaseStorage/database" #path to database
+onready var http_request = $HTTPRequest
+onready var resulttext = $labels/result
 
 func _ready():
-	activateDatabaseEdit() 
-
-#SQL Functions____________________________________
-func activateDatabaseEdit():
-	database = SQLite.new()
-	database.path = databasePath
-	
-func addDataToExistingDatabase(): #create an sql file table sample
-	database.open_db()
-	var tableName = table.text
-	var accountDictionary : Dictionary = Dictionary()
-	accountDictionary["username"] = username.text
-	accountDictionary["password"] = password.text
-	accountDictionary["classcode"] = int(classcode.text)
-	
-	database.insert_row(tableName, accountDictionary)
-	clearAllTextBoxes()
-		
-func readFromDatabase(): #Sample Table (accountInfo)
-	database.open_db()
-	var tableName = "accountInfo"
-	database.query("select * from " + tableName + ";")
-	for i in range(0, database.query_result.size()):
-		result.text = "Qurey results: " + database.query_result[i]["username"] + " " + database.query_result[i]["password"] + " " + str(database.query_result[i][("classcode")])
+	pass
 
 #Button Functions__________________________________
 func _on_buttonShowTable_pressed():
-	readFromDatabase()
+	var error = http_request.request("http://localhost/server/users")
+	if error != OK:
+		print("Error sending request: ", error)
 
-func _on_buttonAddRow_pressed():
-	addDataToExistingDatabase()
-	
-func clearAllTextBoxes():
-	username.text = ""
-	password.text = ""
-	classcode.text = ""
-	table.text = ""
+
+
+func _on_HTTPRequest_request_completed(result, response_code, headers, body):
+	print("Request completed with code: ", response_code)
+	# Convert the response body to a string if necessary
+	var response_text = body.get_string_from_utf8()
+	resulttext.text = "Response body: " + response_text
+	#print("Response body: ", response_text)
