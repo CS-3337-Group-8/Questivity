@@ -20,6 +20,7 @@ api.{your-domain}/db/
 -   **GET /users** - Retrieve all users
 -   **POST /users** - Create a new user
 -   **GET /users/instructors** - Retrieve all instructors
+-   **GET /users/by-username/:user_name** - Retrieve progress by username
 -   **GET /users/students** - Retrieve all students
 -   **GET /users/:user_id** - Retrieve a specific user by ID
 -   **PUT /users/:user_id** - Update a specific user by ID

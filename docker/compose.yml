@@ -65,6 +65,7 @@ services:
         networks:
             - database-access
             - internal-api-bridge
+            - proxy-network
 
     questivity-server:
         container_name: questivity-server
