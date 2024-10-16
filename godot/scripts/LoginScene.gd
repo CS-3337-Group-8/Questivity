@@ -15,8 +15,10 @@ func _ready():
 
 #Login button
 func _on_buttonLogin_pressed():
-	
-	get_tree().change_scene("res://scenes/MainPage.tscn")   #moves to Main Page
+	var error = http_request.request("http://localhost/db/users/by-username/john_doe")#testing pull
+	if error != OK:
+		print("Error sending request: ", error)
+	#get_tree().change_scene("res://scenes/MainPage.tscn")   #moves to Main Page
 
 #Create New Account Button
 func _on_buttonCreateAcc_pressed():
@@ -24,4 +26,9 @@ func _on_buttonCreateAcc_pressed():
 
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
-	pass # Replace with function body.
+	var response_text = (body.get_string_from_utf8())
+	response_text = response_text.lstrip('[')
+	response_text = response_text.rstrip(']')
+	var Dict = parse_json(response_text)
+	print(Dict["username"])
+	
