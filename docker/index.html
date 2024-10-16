@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cs-3337-group-8.github.io/Questivity/docker/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Docker - Questivity LTI</title>
+<link href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" rel="stylesheet"/>
+<link href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css" rel="stylesheet"/>
+<link href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css" rel="stylesheet"/>
+<link href="//rsms.me/inter/inter.css" rel="stylesheet" type="text/css"/>
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&amp;subset=latin-ext,latin" rel="stylesheet" type="text/css"/>
+<link href="../css/bootstrap-custom.min.css" rel="stylesheet"/>
+<link href="../css/base.min.css" rel="stylesheet"/>
+<link href="../css/cinder.min.css" rel="stylesheet"/>
+<link href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css" rel="stylesheet"/>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+<link href="../assets/stylesheets/panzoom.css" rel="stylesheet"/></head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="container">
+<!-- Collapsed navigation -->
+<div class="navbar-header">
+<!-- Expander button -->
+<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<!-- Main title -->
+<a class="navbar-brand" href="..">Questivity LTI</a>
+</div>
+<!-- Expanded navigation -->
+<div class="navbar-collapse collapse">
+<!-- Main navigation -->
+<ul class="nav navbar-nav">
+<li>
+<a href="../db-api/">QuestivityDB</a>
+</li>
+<li>
+<a href="../nginx/">NGINX</a>
+</li>
+<li class="active">
+<a href="./">Docker</a>
+</li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a href="../nginx/" rel="prev">
+<i class="fas fa-arrow-left"></i> Previous
+                        </a>
+</li>
+<li class="disabled">
+<a rel="next">
+                            Next <i class="fas fa-arrow-right"></i>
+</a>
+</li>
+<li>
+<a docker.md"="" docs="" edit="" href="https://github.com/CS-3337-Group-8/Questivity" master=""><i class="fab fa-github"></i> Edit on GitHub</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+<ul class="nav bs-sidenav">
+<li class="first-level active"><a href="#docker-networking-documentation">Docker Networking Documentation</a></li>
+<li class="second-level"><a href="#overview">Overview</a></li>
+<li class="second-level"><a href="#network-definitions">Network Definitions</a></li>
+<li class="third-level"><a href="#1-database-network">1. Database Network</a></li>
+<li class="third-level"><a href="#2-proxy-network">2. Proxy Network</a></li>
+<li class="third-level"><a href="#3-canvas-network">3. Canvas Network</a></li>
+<li class="second-level"><a href="#service-configuration-and-interactions">Service Configuration and Interactions</a></li>
+<li class="third-level"><a href="#web-service">Web Service</a></li>
+<li class="third-level"><a href="#database-service">Database Service</a></li>
+<li class="third-level"><a href="#api-service">API Service</a></li>
+<li class="third-level"><a href="#canvas-service">Canvas Service</a></li>
+<li class="third-level"><a href="#monitoring-and-management-services">Monitoring and Management Services</a></li>
+<li class="third-level"><a href="#godot-export-service">Godot Export Service</a></li>
+</ul>
+</div></div>
+<div class="col-md-9" role="main">
+<h1 id="docker-networking-documentation">Docker Networking Documentation</h1>
+<h2 id="overview">Overview</h2>
+<p>In this Docker Compose setup, we define three bridge networks: <code>database</code>, <code>proxy</code>, and <code>canvas</code>. Each network serves a specific purpose, allowing services to communicate within their designated contexts while isolating them from others as necessary. This document outlines the configuration and purpose of each network and how the services interact within them.</p>
+<h2 id="network-definitions">Network Definitions</h2>
+<h3 id="1-database-network">1. Database Network</h3>
+<pre><code class="language-yaml">database:
+    driver: bridge
+</code></pre>
+<ul>
+<li><strong>Purpose</strong>: The <code>database</code> network is designed to facilitate communication between database-related services, ensuring that they can access each other securely and efficiently.</li>
+<li><strong>Services Connected</strong>:<ul>
+<li><code>db</code>: This service runs a MySQL database, exposing its port to other services in the <code>database</code> network. It initializes with provided environment variables, such as database name and user credentials.</li>
+<li><code>db-api</code>: This service acts as an API layer for the database, allowing other services to interact with it programmatically. It depends on the <code>db</code> service and can access it through the hostname <code>db</code>.</li>
+<li><code>adminer</code>: This service provides a web-based interface for managing the MySQL database, allowing users to easily interact with the database schema and data.</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-proxy-network">2. Proxy Network</h3>
+<pre><code class="language-yaml">proxy:
+    driver: bridge
+</code></pre>
+<ul>
+<li>
+<p><strong>Purpose</strong>: The <code>proxy</code> network serves as a communication layer for services that need to handle web traffic and provide reverse proxy capabilities.</p>
+</li>
+<li>
+<p><strong>Services Connected</strong>:</p>
+<ul>
+<li><code>web</code>: This service uses Nginx to serve static content and proxy requests to other services. It depends on several other services to ensure all required functionalities are available.</li>
+<li><code>dozzle</code>: This service provides a web-based interface to monitor Docker logs in real-time. It can connect to the <code>web</code> service through the <code>proxy</code> network, allowing seamless monitoring.</li>
+<li><code>heimdall</code>: This service provides a customizable dashboard to manage applications and services. It can interact with the <code>web</code> service through the <code>proxy</code> network.</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-canvas-network">3. Canvas Network</h3>
+<pre><code class="language-yaml">canvas:
+    driver: bridge
+</code></pre>
+<ul>
+<li>
+<p><strong>Purpose</strong>: The <code>canvas</code> network is designated for services related to the Canvas Learning Management System (LMS), allowing them to communicate securely.</p>
+</li>
+<li>
+<p><strong>Services Connected</strong>:</p>
+<ul>
+<li><code>canvas</code>: This service runs a Canvas LMS instance. It is isolated in its network but can still communicate with other services if necessary. The network configuration allows for easy scaling and management of Canvas-related functionalities.</li>
+</ul>
+</li>
+</ul>
+<h2 id="service-configuration-and-interactions">Service Configuration and Interactions</h2>
+<h3 id="web-service">Web Service</h3>
+<pre><code class="language-yaml">web:
+    container_name: web
+    image: nginx:latest
+    restart: unless-stopped
+    ports:
+        - "80:80"
+    volumes:
+        - ./web/html:/usr/share/nginx/html
+        - ./web/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+        - heimdall
+        - db-api
+        - gd-export
+        - adminer
+    networks:
+        - database
+        - proxy
+        - canvas
+</code></pre>
+<ul>
+<li><strong>Role</strong>: Serves as the entry point for HTTP traffic, exposing port 80 to the host and routing requests to appropriate services.</li>
+<li><strong>Connections</strong>: The <code>web</code> service connects to all three networks (<code>database</code>, <code>proxy</code>, and <code>canvas</code>), enabling it to interact with various services across different contexts.</li>
+</ul>
+<h3 id="database-service">Database Service</h3>
+<pre><code class="language-yaml">db:
+    container_name: db
+    image: mysql
+    restart: unless-stopped
+    expose:
+        - "3306"
+    volumes:
+        - ./db:/docker-entrypoint-initdb.d
+    environment:
+        MYSQL_DATABASE: database
+        MYSQL_USER: user
+        MYSQL_PASSWORD: password
+        MYSQL_ROOT_PASSWORD: rootpassword
+        TZ: "America/Los_Angeles"
+    networks:
+        - database
+    depends_on:
+        - dozzle
+</code></pre>
+<ul>
+<li><strong>Role</strong>: Hosts a MySQL database instance, initialized with specified environment variables.</li>
+<li><strong>Connections</strong>: Only connected to the <code>database</code> network, providing secure access to database-related services.</li>
+</ul>
+<h3 id="api-service">API Service</h3>
+<pre><code class="language-yaml">db-api:
+    container_name: db-api
+    build: ./db-api
+    restart: unless-stopped
+    expose:
+        - "3000"
+    environment:
+        DB_HOST: db
+        DB_USER: user
+        DB_PASSWORD: password
+        DB_NAME: database
+        TZ: "America/Los_Angeles"
+        PORT: "3000"
+        API_KEY: 9a1442ec-0d0a-4b76-9b1a-38a526d51f2a
+    depends_on:
+        - db
+    networks:
+        - database
+</code></pre>
+<ul>
+<li><strong>Role</strong>: Acts as an intermediary for applications to communicate with the MySQL database.</li>
+<li><strong>Connections</strong>: Connected to the <code>database</code> network for direct communication with the <code>db</code> service.</li>
+</ul>
+<h3 id="canvas-service">Canvas Service</h3>
+<pre><code class="language-yaml">canvas:
+    container_name: canvas
+    image: lbjay/canvas-docker
+    restart: unless-stopped
+    expose:
+        - "3000"
+    networks:
+        - canvas
+</code></pre>
+<ul>
+<li><strong>Role</strong>: Runs the Canvas LMS application.</li>
+<li><strong>Connections</strong>: Isolated in its own network (<code>canvas</code>), promoting security and performance.</li>
+</ul>
+<h3 id="monitoring-and-management-services">Monitoring and Management Services</h3>
+<h4 id="dozzle">Dozzle</h4>
+<pre><code class="language-yaml">dozzle:
+    container_name: dozzle
+    restart: unless-stopped
+    image: amir20/dozzle:latest
+    volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+    expose:
+        - "8080"
+    networks:
+        - proxy
+</code></pre>
+<ul>
+<li><strong>Role</strong>: Provides a UI for monitoring Docker logs.</li>
+<li><strong>Connections</strong>: Part of the <code>proxy</code> network to interact with the <code>web</code> service and other services requiring log access.</li>
+</ul>
+<h4 id="adminer">Adminer</h4>
+<pre><code class="language-yaml">adminer:
+    container_name: adminer
+    restart: unless-stopped
+    image: adminer
+    expose:
+        - "8080"
+    networks:
+        - database
+</code></pre>
+<ul>
+<li><strong>Role</strong>: Web-based database management tool.</li>
+<li><strong>Connections</strong>: Connected solely to the <code>database</code> network for secure access to the MySQL instance.</li>
+</ul>
+<h4 id="heimdall">Heimdall</h4>
+<pre><code class="language-yaml">heimdall:
+    container_name: heimdall
+    image: linuxserver/heimdall
+    restart: unless-stopped
+    environment:
+        PUID: 1000
+        PGID: 1000
+    volumes:
+        - ./heimdall/app.sqlite:/config/www/app.sqlite
+        - ./heimdall/backgrounds:/config/www/backgrounds
+        - ./heimdall/icons:/config/www/icons
+    expose:
+        - "80"
+    networks:
+        - proxy
+</code></pre>
+<ul>
+<li><strong>Role</strong>: Customizable dashboard for managing links to applications.</li>
+<li><strong>Connections</strong>: Part of the <code>proxy</code> network to facilitate communication with the <code>web</code> service.</li>
+</ul>
+<h3 id="godot-export-service">Godot Export Service</h3>
+<pre><code class="language-yaml">gd-export:
+    container_name: gd-export
+    build:
+        context: .
+        dockerfile: ./gd-export/Dockerfile
+        args:
+            GODOT_VERSION: 3.6-stable
+            GODOT_VERSION_DIR: 3.6.stable
+            EXPORT_NAME: HTML5
+            OUTPUT_FILENAME: index.html
+    restart: no
+    volumes:
+        - ../godot:/build/src
+        - ./web/html/questivity:/build/output
+</code></pre>
+<ul>
+<li><strong>Role</strong>: Builds and exports Godot projects to HTML5 format.</li>
+<li><strong>Connections</strong>: Not explicitly connected to any network; however, it can interact with other services via volume mounts and shared file access.</li>
+</ul></div>
+</div>
+<footer class="col-md-12 text-center">
+<hr/>
+<p>
+<small>© 2024 <a href="https://github.com/CS-3337-Group-8" rel="noopener" target="_blank">CS-3337-Group-8</a>
+</small><br/>
+<small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+</p>
+</footer>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../js/bootstrap-3.0.3.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>var base_url = ".."</script>
+<script src="../js/base.js"></script>
+<div aria-hidden="true" aria-labelledby="keyboardModalLabel" class="modal" id="mkdocs_keyboard_modal" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+</div>
+<div class="modal-body">
+<table class="table">
+<thead>
+<tr>
+<th style="width: 20%;">Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="help shortcut"><kbd>?</kbd></td>
+<td>Open this help</td>
+</tr>
+<tr>
+<td class="next shortcut"><kbd>n</kbd></td>
+<td>Next page</td>
+</tr>
+<tr>
+<td class="prev shortcut"><kbd>p</kbd></td>
+<td>Previous page</td>
+</tr>
+<tr>
+<td class="search shortcut"><kbd>s</kbd></td>
+<td>Search</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+<script src="../assets/javascripts/panzoom.min.js"></script><script src="../assets/javascripts/zoompan.js"></script></body>
+</html>
