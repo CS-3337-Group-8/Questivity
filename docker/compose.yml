@@ -52,6 +52,8 @@ services:
         restart: unless-stopped
         expose:
             - "3000"
+        ports:
+            - "3000:3000"
         environment:
             DB_HOST: mysql-database
             DB_USER: mysql-user
