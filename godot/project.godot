@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "SQLiteWrapper",
 "language": "GDScript",
 "path": "res://addons/godot-sqlite/godot-sqlite-wrapper.gd"
+}, {
+"base": "Node",
+"class": "ServerConnection",
+"language": "GDScript",
+"path": "res://scripts/ServerConnection.gd"
 } ]
 _global_script_class_icons={
-"SQLiteWrapper": ""
+"SQLiteWrapper": "",
+"ServerConnection": ""
 }
 
 [application]
