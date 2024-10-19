@@ -1,5 +1,4 @@
-docker/godot-export/html/*
-!docker/godot-export/html/export-here
+godot-export/
 .vscode/
 venv/
 __pycache__/

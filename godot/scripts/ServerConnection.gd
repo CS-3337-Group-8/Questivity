@@ -1,7 +1,7 @@
 extends Node
 class_name ServerConnection
 
-export(String) var url = "http://localhost/db"
+export(String) var url = "http://localhost/server/"
 onready var http_request
 
 
@@ -11,7 +11,7 @@ func _ready():
 	add_child(http_request)
 	print(http_request)
 	http_request.connect("request_completed", self, "_on_request_completed")
-	print(self.create("/users", {"name":"Er", "password":"123"}))
+	print(self.read("", {"username":"admin", "password":"password"}))
 
 	
 func create(endpoint:String, data:Dictionary):
