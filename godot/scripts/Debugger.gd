@@ -9,6 +9,7 @@ func _ready():
 #Button Functions__________________________________
 func _on_buttonShowTable_pressed():
 	var error = http_request.request("http://localhost/server/users")
+	print(error)
 	if error != OK:
 		print("Error sending request: ", error)
 

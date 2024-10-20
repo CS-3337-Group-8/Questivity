@@ -30,6 +30,10 @@ config/name="Cs 3337 - Game Lingo"
 run/main_scene="res://scenes/Welcome.tscn"
 config/icon="res://resources/icon.png"
 
+[autoload]
+
+serverConnection="res://scripts/ServerConnection.gd"
+
 [display]
 
 window/stretch/mode="viewport"
