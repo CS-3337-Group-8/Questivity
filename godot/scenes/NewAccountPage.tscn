@@ -14,7 +14,7 @@ size = 36
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=10]
-size = 32
+size = 24
 font_data = ExtResource( 2 )
 
 [node name="newAccount" type="Control"]
@@ -96,10 +96,11 @@ text = "What role are you?"
 align = 1
 
 [node name="textErrorMessage" type="Label" parent="labels"]
-margin_left = 350.0
-margin_top = 364.0
-margin_right = 656.0
-margin_bottom = 439.0
+visible = false
+margin_left = 120.0
+margin_top = 344.0
+margin_right = 896.0
+margin_bottom = 419.0
 custom_colors/font_color = Color( 0.898039, 0.0392157, 0.0392157, 1 )
 custom_fonts/font = SubResource( 10 )
 text = "Account already exist"
