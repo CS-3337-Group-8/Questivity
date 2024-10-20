@@ -12,43 +12,74 @@ onready var submitButton = $buttons/buttonSubmit
 onready var textRole = $labels/textRole
 onready var username = $labels/textUsername
 onready var password = $labels/textPassword
-onready var classCode = $labels/textClasscode
 onready var textCreateAcc = $labels/textCreateAcc
+onready var errorMessage = $labels/textErrorMessage
 	#TextBoxes
 onready var textBoxUserName = $textfields/textboxUsername
 onready var textBoxPassWord = $textfields/textboxPassword
-onready var textBoxClassCode = $textfields/textboxClasscode
 	#HTTPRequest
+onready var connection = $ServerConnection
+	
+var isInstructor = false
 
 	#Signals
 signal CreateUser(user, password, classcode)
-	
 
 
-# Called whonready varen the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
+	var read_signal = connection.httpGet("", {})
+	connection.connect(read_signal, self, "_on_read_completed")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _on_StudentButton_pressed():
+	isInstructor = false
 	studentButton.visible = false
 	teacherButton.visible = false
 	textRole.visible = false
 	submitButton.visible = true
 	username.visible = true
 	password.visible = true 
-	classCode.visible = true 
 	textCreateAcc.visible = true
 	textBoxUserName.visible = true
 	textBoxPassWord.visible = true
-	textBoxClassCode.visible = true
 
+
+func _on_buttonTeacher_pressed():
+	isInstructor = true
+	studentButton.visible = false
+	teacherButton.visible = false
+	textRole.visible = false
+	submitButton.visible = true
+	username.visible = true
+	password.visible = true 
+	textCreateAcc.visible = true
+	textBoxUserName.visible = true
+	textBoxPassWord.visible = true
 
 func _on_buttonSubmit_pressed():
-	emit_signal("CreateUser", textBoxUserName.text, textBoxPassWord.text, textBoxClassCode.text)
-	get_tree().change_scene("res://scenes/Welcome.tscn")
+	var registerInput: Dictionary = {
+		"username": textBoxUserName.text,
+		"password": textBoxPassWord.text,
+		"is_instructor": isInstructor
+	}
+	var login_signal = connection.httpPost("users/register/", registerInput)
+	connection.connect(login_signal, self, "_on_register_check_completed")
+	textBoxUserName.text = ""
+	textBoxPassWord.text = ""
+	
+
+func _on_read_completed(json_data):
+	print("Read Data:" + str(json_data))
+	
+func _on_register_check_completed(json_data):
+	print("Read Data:" + str(json_data))
+	
+	if json_data.response_code >= 200 && json_data.response_code < 300:
+		get_tree().change_scene("res://scenes/Welcome.tscn")
+	else:
+		errorMessage.visible = true
+		errorMessage.text = str(json_data)
+	
+
 

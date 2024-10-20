@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/LoginScene.gd" type="Script" id=1]
 [ext_resource path="res://resources/ARIAL.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://baseTheme.tres" type="Theme" id=3]
+[ext_resource path="res://scripts/ServerConnection.gd" type="Script" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.172549, 0, 0.482353, 1 )
@@ -109,8 +110,8 @@ custom_fonts/font = SubResource( 4 )
 text = "Create New Account"
 flat = true
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[node name="ServerConnection" type="Node" parent="."]
+script = ExtResource( 4 )
 
 [connection signal="pressed" from="Background/buttons/buttonLogin" to="." method="_on_buttonLogin_pressed"]
 [connection signal="pressed" from="Background/buttons/buttonCreateAcc" to="." method="_on_buttonCreateAcc_pressed"]
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
