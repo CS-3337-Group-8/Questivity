@@ -28,7 +28,7 @@ theme:
               name: Switch to light mode
           primary: black
           accent: blue
-    logo: assets/eddie-icon.png
+    #logo: assets/eddie-icon.png
 
 
 markdown_extensions:

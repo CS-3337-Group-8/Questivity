@@ -1,51 +1,53 @@
-# Welcome to Questivity
+# Introduction
 
-**Questivity** is an innovative gamification platform specifically designed to integrate seamlessly with Canvas LMS networks. Our platform enhances the learning experience by incorporating engaging, gamified elements that transform traditional educational environments into interactive learning experiences.
+Welcome to the technical documentation for **Questivity**, a comprehensive gamification platform designed to enhance learning experiences through integration with **Canvas LMS** via the **LTI (Learning Tools Interoperability) standard**. Questivity offers an engaging and interactive environment that leverages gamified content to promote student participation and improve educational outcomes.
 
----
-
-## Overview
-
-**Questivity** utilizes the Learning Tools Interoperability (LTI) standard, enabling seamless integration with a variety of Learning Management Systems (LMS). Our platform is focused on user engagement and aims to foster an interactive learning atmosphere through gamified elements. With Questivity, educators can easily create and manage captivating content that motivates students and enhances their learning outcomes.
+Questivity is built on a **modern, containerized technology stack** that ensures scalability, maintainability, and ease of deployment across various environments. This documentation is intended for **developers**, **system administrators**, and **technical teams** responsible for deploying, configuring, and maintaining the platform in production environments.
 
 ---
 
-## Transform Your Learning Experience
+## What You Will Learn
 
-**Questivity** brings game mechanics to education, making learning more enjoyable and effective. Discover how our platform can make a difference in classrooms and online learning environments!
+This documentation provides a detailed walkthrough of the system, including the following topics:
 
-<div style="display: flex; justify-content: space-around; flex-wrap: wrap; padding: 20px;">
-    <div style="border: 1px solid #ccc; border-radius: 8px; width: 300px; margin: 10px; padding: 15px;">
-        <h3>Engaging Quizzes</h3>
-        <p>Gamified quizzes that challenge students and provide instant feedback to keep them motivated and engaged in their learning process.</p>
-    </div>
-    <div style="border: 1px solid #ccc; border-radius: 8px; width: 300px; margin: 10px; padding: 15px;">
-        <h3>Interactive Challenges</h3>
-        <p>Students can participate in interactive challenges to enhance their understanding and skills, fostering a sense of competition and achievement.</p>
-    </div>
-    <div style="border: 1px solid #ccc; border-radius: 8px; width: 300px; margin: 10px; padding: 15px;">
-        <h3>Real-Time Analytics</h3>
-        <p>Get insights into student performance and engagement with our comprehensive analytics tools, allowing educators to make data-driven decisions.</p>
-    </div>
-    <div style="border: 1px solid #ccc; border-radius: 8px; width: 300px; margin: 10px; padding: 15px;">
-        <h3>Customizable Features</h3>
-        <p>Easily adapt our platform to fit your specific educational needs and objectives with customizable settings and content options.</p>
-    </div>
-</div>
+1. **System Architecture**: Learn how Questivity is structured, with an emphasis on the separation between the **Godot frontend** (interactive user interface) and the **Django backend** (handling business logic and database operations).
+   
+2. **Installation and Setup**: Step-by-step instructions to help you get Questivity up and running in your environment. This includes setting up required software, configuring Docker containers, and connecting Questivity to Canvas LMS.
+   
+3. **Configuration and Integration**: Guidance on how to configure the platform to meet your specific needs, including setting up integration with **Canvas LMS** through LTI, as well as managing users, courses, and game content.
+
+4. **Deployment**: Best practices for deploying Questivity in a production environment, covering topics such as container orchestration using Docker, server configuration, and SSL setup.
+
+5. **Scaling and Maintenance**: Insights into scaling Questivity to handle increased user traffic, along with maintenance tips to ensure high availability and performance.
 
 ---
 
-## Why Choose Questivity?
+## Target Audience
 
--   **Enhance Student Engagement:** By incorporating game elements into the learning process, Questivity keeps students engaged and encourages active participation.
--   **Boost Learning Outcomes:** Research shows that gamified learning can lead to improved retention rates and academic performance.
--   **User-Friendly Interface:** Our platform is designed with educators and students in mind, ensuring an intuitive and smooth experience for everyone.
--   **Support & Resources:** We offer comprehensive support and resources to help you maximize the potential of Questivity in your educational environment.
+This documentation is specifically designed for:
+
+- **Developers**: Those who are building or customizing Questivity, adding features, or troubleshooting.
+- **System Administrators**: Those responsible for deploying and maintaining the platform, managing updates, monitoring performance, and ensuring a secure production environment.
+- **Educational Technologists and IT Teams**: Those involved in integrating Questivity with existing learning management systems like **Canvas LMS**, ensuring seamless user experience for both students and educators.
 
 ---
 
-## Join the Questivity Community!
+## Key Features of Questivity
 
-Embark on a journey to revolutionize education through gamification. Whether you’re an educator looking to enhance your classroom experience or an institution aiming to improve student engagement, Questivity is here to support you.
+1. **Gamification**: Questivity transforms traditional learning activities into engaging, game-like experiences, increasing student motivation and interaction.
+   
+2. **LTI Standard Integration**: Designed to integrate easily with **Canvas LMS**, Questivity utilizes the LTI standard, allowing seamless user authentication and data exchange between Canvas and the platform.
 
-### [Get Started with Questivity Today](https://github.com/CS-3337-Group-8/Questivity)
+3. **Interactive Godot Frontend**: Questivity uses the **Godot Engine** to build dynamic and interactive frontends, enhancing the student experience with immersive, game-like interfaces delivered through **WebAssembly** in the browser.
+
+4. **Django Backend**: The platform’s backend is built using **Django**, a powerful Python framework that handles API requests, user authentication, and database management. The **Django Admin Panel** is also available for staff to manage courses, track student progress, and input game content.
+
+5. **Containerized Deployment**: Questivity is fully containerized using **Docker**, ensuring that each component (frontend, backend, database, and web server) operates in an isolated, scalable, and easily maintainable environment.
+
+---
+
+## Next Steps
+
+Start by exploring the **Getting Started** section to set up your Questivity environment, or dive into the **Architecture Overview** to gain a deeper understanding of how the system works. For integration with **Canvas LMS**, see the **Configuration and Customization** section, where you'll find step-by-step instructions to connect Questivity using the LTI standard.
+
+By following this documentation, you’ll gain the knowledge needed to deploy, maintain, and scale Questivity effectively in any learning environment.
