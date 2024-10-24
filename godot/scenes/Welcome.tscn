@@ -83,7 +83,7 @@ custom_fonts/font = SubResource( 3 )
 placeholder_text = "Username"
 
 [node name="textboxPassword" type="LineEdit" parent="Background/textfields"]
-margin_left = 496.0
+margin_left = 488.0
 margin_top = 248.0
 margin_right = 806.0
 margin_bottom = 302.0

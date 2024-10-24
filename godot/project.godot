@@ -37,6 +37,7 @@ serverConnection="res://scripts/ServerConnection.gd"
 [display]
 
 window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gui]
 
