@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href=".." rel="prev"/>
+<link href="../docker/" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.42" name="generator"/>
+<title>Project Architecture - Questivity Docs</title>
+<link href="../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="blue" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#project-architecture">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Questivity Docs" class="md-header__button md-logo" data-md-component="logo" href=".." title="Questivity Docs">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Questivity Docs
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Project Architecture
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="blue" data-md-color-media="" data-md-color-primary="white" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="blue" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="..">
+        
+  
+    
+  
+  Introduction
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="./">
+        
+  
+    
+  
+  Project Architecture
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../docker/">
+        
+  
+    
+  
+  Docker
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../godot/">
+        
+  
+    
+  
+  Godot
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../server/">
+        
+  
+    
+  
+  Questivity Server
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../start/">
+        
+  
+    
+  
+  Getting Started
+
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Questivity Docs" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Questivity Docs">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Questivity Docs
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Project Architecture
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Project Architecture
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#high-level-architecture-overview">
+<span class="md-ellipsis">
+      High-Level Architecture Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#project-directory-structure">
+<span class="md-ellipsis">
+      Project Directory Structure
+    </span>
+</a>
+<nav aria-label="Project Directory Structure" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#directory-and-file-descriptions">
+<span class="md-ellipsis">
+      Directory and File Descriptions
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#component-overview">
+<span class="md-ellipsis">
+      Component Overview
+    </span>
+</a>
+<nav aria-label="Component Overview" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-godot-frontend-webassembly">
+<span class="md-ellipsis">
+      1. Godot Frontend (WebAssembly)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-nginx-web-server-and-reverse-proxy">
+<span class="md-ellipsis">
+      2. NGINX (Web Server and Reverse Proxy)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-questivity-server-django-backend">
+<span class="md-ellipsis">
+      3. Questivity Server (Django Backend)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-mysql-database">
+<span class="md-ellipsis">
+      4. MySQL Database
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#build-and-deployment-process">
+<span class="md-ellipsis">
+      Build and Deployment Process
+    </span>
+</a>
+<nav aria-label="Build and Deployment Process" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-docker-containerization">
+<span class="md-ellipsis">
+      1. Docker Containerization
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-build-workflow">
+<span class="md-ellipsis">
+      2. Build Workflow
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-flow-and-communication">
+<span class="md-ellipsis">
+      Data Flow and Communication
+    </span>
+</a>
+<nav aria-label="Data Flow and Communication" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-client-requests-browser-to-nginx">
+<span class="md-ellipsis">
+      1. Client Requests (Browser to NGINX)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-api-requests-nginx-to-questivity-server">
+<span class="md-ellipsis">
+      2. API Requests (NGINX to Questivity Server)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-backend-processing-questivity-server-logic">
+<span class="md-ellipsis">
+      3. Backend Processing (Questivity Server Logic)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-database-operations-questivity-server-and-mysql">
+<span class="md-ellipsis">
+      4. Database Operations (Questivity Server and MySQL)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-response-delivery-questivity-server-to-frontend">
+<span class="md-ellipsis">
+      5. Response Delivery (Questivity Server to Frontend)
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary-of-data-flow">
+<span class="md-ellipsis">
+      Summary of Data Flow
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker/">
+<span class="md-ellipsis">
+    Docker
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../godot/">
+<span class="md-ellipsis">
+    Godot
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../server/">
+<span class="md-ellipsis">
+    Questivity Server
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../start/">
+<span class="md-ellipsis">
+    Getting Started
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="project-architecture">Project Architecture</h1>
+<p>The <strong>Questivity</strong> platform is built on a modular, containerized architecture using Docker. Each component operates in its own Docker container, ensuring separation of concerns, scalability, and maintainability. Below is a detailed breakdown of the system architecture and the interaction between the services.</p>
+<hr/>
+<h2 id="high-level-architecture-overview">High-Level Architecture Overview</h2>
+<ul>
+<li><strong>Client</strong>: End users connect via a web browser.</li>
+<li><strong>NGINX</strong>: Acts as a reverse proxy, serves static content (Godot frontend), and routes API requests to the Questivity Server (Django backend).</li>
+<li><strong>Godot Frontend</strong>: Compiled to WebAssembly (WASM) for high-performance interactive experiences within the browser.</li>
+<li><strong>Questivity Server (Django Backend)</strong>: Manages backend logic, processes API requests, and interacts with the MySQL database.</li>
+<li><strong>MySQL Database</strong>: Stores user data, game progress, and application states.</li>
+<li><strong>Staff Access (Django Admin Panel)</strong>: Staff (admins and teachers) use the Django Admin interface for administrative and course management tasks.</li>
+</ul>
+<div class="mermaid">graph TD
+subgraph Client Side
+A[Web Browser]
+end
+
+    subgraph Docker Containers
+        B[NGINX - Reverse Proxy]
+        C[Godot Frontend - WebAssembly]
+        D[Questivity Server - Django Backend]
+        E[MySQL Database]
+        F[Staff Access - Django Admin Panel]
+    end
+
+    A --&gt;|Connects to| B
+    B --&gt;|Serves Godot Frontend| C
+    B --&gt;|Routes Admin Requests| F
+    C --&gt;|API Requests| D
+    F --&gt;|API Requests| D
+    D --&gt;|Database Queries| E</div>
+<h2 id="project-directory-structure">Project Directory Structure</h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>questivity/
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>├── docker/
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>│   ├── .env
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>│   ├── heimdall/
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>│   ├── nginx/
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>│   │   └── nginx.conf
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>│   └── compose.yml
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>├── documentation/
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>│   ├── docs/
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>│   └── mkdocs.yml
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>├── godot/
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>├── questivity-server/
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>│   ├── server/
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>│   ├── static/
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>│   ├── users/
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>│   └── Dockerfile
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>├── dockermenu.py
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>└── gitmenu.py
+</code></pre></div>
+<h3 id="directory-and-file-descriptions">Directory and File Descriptions</h3>
+<ul>
+<li>
+<p><strong><code>docker/</code></strong>: Contains Docker Compose configuration files for managing the containerized environment.</p>
+<ul>
+<li><strong><code>.env</code></strong>: Defines environment variables for Docker containers, such as credentials and configurations.</li>
+<li><strong><code>heimdall/</code></strong>: Configuration files related to the Heimdall service (currently not in use).</li>
+<li><strong><code>nginx/nginx.conf</code></strong>: NGINX configuration specifying request routing and static file serving.</li>
+<li><strong><code>compose.yml</code></strong>: Primary Docker Compose configuration file that orchestrates the setup and linkage of containers.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>documentation/</code></strong>: Contains configuration and files for generating the documentation site.</p>
+<ul>
+<li><strong><code>docs/</code></strong>: Markdown files that compose the documentation pages.</li>
+<li><strong><code>mkdocs.yml</code></strong>: MkDocs configuration specifying site generation options like navigation and theming.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>godot/</code></strong>: Contains the Godot project files, including assets and scripts, compiled into WebAssembly for the frontend.</p>
+</li>
+<li>
+<p><strong><code>questivity-server/</code></strong>: Contains Django backend project files responsible for backend logic.</p>
+<ul>
+<li><strong><code>server/</code></strong>: Houses the Django configuration files, including settings, middleware, and URL routing.</li>
+<li><strong><code>static/</code></strong>: Static assets used by the Questivity Server (Django backend), such as CSS, JavaScript, and images.</li>
+<li><strong><code>users/</code></strong>: Custom user model and authentication logic for the backend.</li>
+<li><strong><code>Dockerfile</code></strong>: Dockerfile for building the Questivity Server container, detailing dependencies and application setup.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>dockermenu.py</code></strong>: Interface for managing Docker Compose tasks (e.g., start, stop, and build containers).</p>
+</li>
+<li>
+<p><strong><code>gitmenu.py</code></strong>: Interface for managing Git version control tasks such as pull, push, and branch management.</p>
+</li>
+</ul>
+<hr/>
+<h2 id="component-overview">Component Overview</h2>
+<h3 id="1-godot-frontend-webassembly">1. <strong>Godot Frontend (WebAssembly)</strong></h3>
+<ul>
+<li>The <strong>Godot Frontend</strong> is developed using the Godot engine and compiled to <strong>WebAssembly (WASM)</strong> for optimal performance in the browser.</li>
+<li>It interfaces with the Questivity Server (Django backend) via <strong>RESTful API</strong> calls to dynamically interact with backend services.</li>
+<li><strong>NGINX</strong> serves the static WebAssembly assets, allowing them to be rendered efficiently within the browser.</li>
+</ul>
+<h3 id="2-nginx-web-server-and-reverse-proxy">2. <strong>NGINX (Web Server and Reverse Proxy)</strong></h3>
+<ul>
+<li><strong>NGINX</strong> functions as both a <strong>static content server</strong> and a <strong>reverse proxy</strong>.<ul>
+<li>Serves the Godot-generated WebAssembly and frontend assets.</li>
+<li>Routes API requests from the Godot frontend to the Questivity Server (Django backend).</li>
+</ul>
+</li>
+<li>Manages SSL termination and ensures secure and efficient communication between the frontend and backend.</li>
+</ul>
+<h3 id="3-questivity-server-django-backend">3. <strong>Questivity Server (Django Backend)</strong></h3>
+<ul>
+<li>The <strong>Questivity Server</strong> is built with Django and manages the core backend logic, including user authentication, API handling, and database interactions.</li>
+<li>It exposes a <strong>RESTful API</strong> for the Godot frontend to communicate with, handling data such as game progress, user information, and other backend processes.</li>
+<li>Uses <strong>Django ORM</strong> to interface with the <strong>MySQL database</strong>, abstracting SQL queries and ensuring efficient data management.</li>
+<li><strong>Staff Access via Django Admin Panel</strong>:<ul>
+<li>Admins and teachers access the <strong>Django Admin Panel</strong> via a dedicated staff login.</li>
+<li><strong>Admins</strong> use the admin panel to perform system administration tasks, manage users, survey data, and review student performance.</li>
+<li><strong>Teachers</strong> manage courses, view student performance, manage course data, and input information used to generate games from the course content.</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-mysql-database">4. <strong>MySQL Database</strong></h3>
+<ul>
+<li>The <strong>MySQL database</strong> stores all persistent data, including user profiles, game progress, and application states.</li>
+<li>The Questivity Server interacts with MySQL through the Django ORM, enabling smooth CRUD operations.</li>
+</ul>
+<hr/>
+<h2 id="build-and-deployment-process">Build and Deployment Process</h2>
+<h3 id="1-docker-containerization">1. <strong>Docker Containerization</strong></h3>
+<ul>
+<li>The Questivity platform is fully containerized using <strong>Docker</strong>. Each component (NGINX, Godot, Questivity Server, MySQL) runs in its own container, ensuring isolation and modularity.</li>
+<li><strong>Docker Compose</strong> orchestrates the containers, defining the services and their interactions in the <code>compose.yml</code> file.</li>
+</ul>
+<p><strong>Build Process:</strong></p>
+<ul>
+<li><strong>Questivity Server</strong>: The Django backend container builds its dependencies, migrates the database schema, and starts the backend server.</li>
+<li><strong>MySQL</strong>: The database service is initialized using environment variables (e.g., <code>MYSQL_USER</code>, <code>MYSQL_PASSWORD</code>).</li>
+<li><strong>NGINX</strong>: Configured to serve the Godot frontend and route API requests to the Questivity Server.</li>
+<li><strong>Godot</strong>: Exports the frontend as WebAssembly, which is served statically by NGINX.</li>
+</ul>
+<h3 id="2-build-workflow">2. <strong>Build Workflow</strong></h3>
+<ul>
+<li><strong>Questivity Server Dockerfile</strong>: Defines the backend’s Python dependencies and runtime environment.</li>
+<li><strong>Godot Export</strong>: The Godot frontend is compiled into WebAssembly in a containerized environment, and the assets are served statically by NGINX.</li>
+<li><strong>NGINX</strong> serves the Godot frontend while forwarding backend API requests to the Questivity Server.</li>
+</ul>
+<hr/>
+<h2 id="data-flow-and-communication">Data Flow and Communication</h2>
+<h3 id="1-client-requests-browser-to-nginx">1. <strong>Client Requests (Browser to NGINX)</strong></h3>
+<ul>
+<li>The user accesses the Questivity platform via a web browser.</li>
+<li><strong>NGINX</strong> serves the Godot WebAssembly frontend and forwards any API requests from the frontend to the Questivity Server (Django backend).</li>
+</ul>
+<h3 id="2-api-requests-nginx-to-questivity-server">2. <strong>API Requests (NGINX to Questivity Server)</strong></h3>
+<ul>
+<li>NGINX proxies API requests from the Godot frontend to the Questivity Server based on URL paths defined in <code>nginx.conf</code>.</li>
+</ul>
+<h3 id="3-backend-processing-questivity-server-logic">3. <strong>Backend Processing (Questivity Server Logic)</strong></h3>
+<ul>
+<li>The <strong>Questivity Server</strong> processes incoming API requests, performs necessary authentication, and interacts with the MySQL database.</li>
+<li>After processing, the server responds with data (typically in <strong>JSON</strong> format).</li>
+</ul>
+<h3 id="4-database-operations-questivity-server-and-mysql">4. <strong>Database Operations (Questivity Server and MySQL)</strong></h3>
+<ul>
+<li>The <strong>MySQL database</strong> processes queries and updates via the Django ORM in the Questivity Server.</li>
+<li>The database service is isolated from direct access but is reachable by the Questivity Server via Docker’s internal network.</li>
+</ul>
+<h3 id="5-response-delivery-questivity-server-to-frontend">5. <strong>Response Delivery (Questivity Server to Frontend)</strong></h3>
+<ul>
+<li>The Questivity Server packages the response data and sends it back to the Godot frontend via <strong>NGINX</strong>, allowing the frontend to update the user interface based on the backend's response.</li>
+</ul>
+<hr/>
+<h2 id="summary-of-data-flow">Summary of Data Flow</h2>
+<ol>
+<li><strong>User Action</strong>: The user interacts with the Godot WebAssembly frontend.</li>
+<li><strong>API Call</strong>: The frontend sends an API request via NGINX to the Questivity Server.</li>
+<li><strong>Backend Processing</strong>: The Questivity Server processes the request and interacts with MySQL.</li>
+<li><strong>Database Query</strong>: MySQL returns the data to the Questivity Server, which sends it to the frontend.</li>
+<li><strong>UI Update</strong>: The Godot frontend updates based on the response from the Questivity Server.</li>
+</ol>
+<hr/>
+<p>This modular architecture ensures that the Questivity platform remains scalable, maintainable, and easy to develop, with each service running in its own Docker container for optimal performance and security. The <strong>Django Admin Panel</strong> provides staff with a robust interface for managing system tasks, courses, and content.</p>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      © 2024 <a href="https://github.com/csula-cs3337swe/202408Group8-repo" rel="noopener" target="_blank">Questivity</a>
+</div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/csula-cs3337swe/202408Group8-repo" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+<script src="https://unpkg.com/mermaid@9.4.3/dist/mermaid.min.js"></script><script>mermaid.initialize({
+    theme: "dark",
+    themeVariables: {
+        primaryColor: "#BB2528",
+        primaryTextColor: "#fff",
+        primaryBorderColor: "#7C0000",
+        lineColor: "#F8B229",
+        secondaryColor: "#006100",
+        tertiaryColor: "#fff"
+    }
+});</script></body>
+</html>

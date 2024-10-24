@@ -1,0 +1,1875 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../server/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>Getting Started - Questivity Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Questivity Docs" class="md-header__button md-logo" aria-label="Questivity Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Questivity Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Introduction
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../architecture/" class="md-tabs__link">
+        
+  
+    
+  
+  Project Architecture
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../docker/" class="md-tabs__link">
+        
+  
+    
+  
+  Docker
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../godot/" class="md-tabs__link">
+        
+  
+    
+  
+  Godot
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../server/" class="md-tabs__link">
+        
+  
+    
+  
+  Questivity Server
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Questivity Docs" class="md-nav__button md-logo" aria-label="Questivity Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Questivity Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../godot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Godot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Questivity Server
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#required-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required Software
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Required Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#godot-engine-36" class="md-nav__link">
+    <span class="md-ellipsis">
+      Godot Engine 3.6
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-required-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Required Software
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing Required Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-godot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Godot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the Terminal
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the Terminal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos-open-terminal-from-a-specific-folder-in-finder" class="md-nav__link">
+    <span class="md-ellipsis">
+      macOS: Open Terminal from a Specific Folder in Finder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-open-git-bash-from-a-specific-folder-in-file-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows: Open Git Bash from a Specific Folder in File Explorer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-open-the-terminal-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Open the Terminal (macOS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-open-git-bash-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Open Git Bash (Windows)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-bash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Bash Commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-shortcuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Shortcuts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-navigation-in-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of Navigation in Bash
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash-path-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bash Path Differences
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Git
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-key-git-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Key Git Commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-in-with-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging in with Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloning-a-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloning a Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pulling-a-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pulling a Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#staging-in-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Staging in Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-in-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commit in Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-requests-prs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pull Requests (PRs)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-a-pull-request-pr-before-approval" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating a Pull Request (PR) Before Approval
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating a Pull Request (PR) Before Approval">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-updates-in-the-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing Updates in the PR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge Conflicts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preventing-merge-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preventing Merge Conflicts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-key-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Key Commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleaning-up-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cleaning up Docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Compose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Starting Docker Compose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-running-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing Running Containers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopping-a-specific-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stopping a Specific Container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-a-specific-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Starting a Specific Container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-a-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing a Container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-logs-of-a-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing Logs of a Container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restarting-a-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restarting a Container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bringing-down-the-entire-docker-compose-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bringing Down the Entire Docker Compose Setup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="required-software">Required Software</h2>
+<p>To successfully develop, deploy, and run the Questivity platform, a variety of software components are needed. Below is a detailed list of the required software and their roles in the system.</p>
+<h3 id="godot-engine-36">Godot Engine 3.6</h3>
+<ul>
+<li><strong>Purpose</strong>: Game development engine for creating the <strong>Godot frontend</strong>, which delivers the interactive user interface for the Questivity platform.</li>
+<li><strong>Features</strong>:<ul>
+<li>Supports both 2D and 3D development.</li>
+<li>Exports to <strong>WebAssembly (WASM)</strong>, enabling efficient performance in web browsers.</li>
+<li>Provides a <strong>user-friendly interface</strong> for developers and robust scripting with <strong>GDScript</strong> (Python-like language).</li>
+</ul>
+</li>
+</ul>
+<h3 id="python">Python</h3>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Core programming language used for developing the <strong>Questivity Server</strong> (Django backend), which handles backend logic, API processing, and database management.</p>
+</li>
+<li>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>Used with <strong>Django</strong> for rapid web application development.</li>
+<li>Extensive library support for web, data handling, and security features.</li>
+<li>Python's <strong>virtual environment</strong> helps manage dependencies in isolation.</li>
+</ul>
+</li>
+</ul>
+<h3 id="git">Git</h3>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Distributed version control system used for managing and tracking changes to the Questivity codebase.</p>
+</li>
+<li>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>Facilitates collaboration between multiple developers, allowing for distributed work.</li>
+<li><strong>Branching and merging</strong> support to enable parallel development and safe feature integration.</li>
+<li>Integration with platforms like <strong>GitHub</strong> or <strong>GitLab</strong> for remote repository management.</li>
+</ul>
+</li>
+</ul>
+<h3 id="docker">Docker</h3>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Containerization platform that packages and deploys each component of the Questivity platform (e.g., NGINX, Django, MySQL) into isolated containers.</p>
+</li>
+<li>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>Creates consistent and isolated environments for development and production.</li>
+<li><strong>Docker Compose</strong> simplifies managing multi-container applications, automating the build, configuration, and linkage of services.</li>
+<li>Ensures easier <strong>dependency management</strong> and deployment across different environments.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="installing-required-software">Installing Required Software</h2>
+<p>This section provides step-by-step tutorials for installing the necessary software required for developing the Questivity platform, including <strong>Godot</strong>, <strong>Git</strong>, <strong>Docker</strong>, and <strong>Python</strong>. Follow these guides to ensure your development environment is set up correctly.</p>
+<hr />
+<h3 id="installing-godot">Installing Godot</h3>
+<p><strong>Godot Engine</strong> is used for building the interactive frontend of the Questivity platform.</p>
+<ol>
+<li>
+<p>Download the Correct Version</p>
+<ul>
+<li>Visit the <a href="https://godotengine.org/download/3.x/">official Godot download page</a>.</li>
+<li>Select <strong>Godot 3.6</strong> (do not download the .NET version).</li>
+</ul>
+</li>
+<li>
+<p>Extract the Downloaded .zip File</p>
+<ul>
+<li>Once downloaded, locate the <strong>.zip</strong> file in your Downloads folder.</li>
+<li>Extract the contents to your preferred location (e.g., C:\Godot or /Applications on macOS).</li>
+</ul>
+</li>
+<li>
+<p>Running Godot Engine</p>
+<ul>
+<li>On Windows, navigate to the extracted folder and run the <strong>Godot_v3.6_stable_win64.exe</strong> file.</li>
+<li>On macOS, run the <strong>Godot.app</strong> file inside the extracted folder.</li>
+</ul>
+</li>
+</ol>
+<p>Notes:</p>
+<ul>
+<li>No installation wizard is required since <strong>Godot</strong> runs as a standalone binary directly after extraction.</li>
+<li>On macOS, you may encounter security warnings. To resolve this, go to <strong>System Preferences &gt; Security &amp; Privacy</strong> and allow the app to run.</li>
+</ul>
+<hr />
+<h3 id="installing-git">Installing Git</h3>
+<p><strong>Git</strong> is used for version control and collaboration in the Questivity project.</p>
+<p>Windows Installation</p>
+<ol>
+<li>
+<p>Download the Git Installer</p>
+<ul>
+<li>Visit the <a href="https://git-scm.com/download/win">official Git website</a>.</li>
+<li>Click the <strong>Download for Windows</strong> button.</li>
+</ul>
+</li>
+<li>
+<p>Run the Git Installer</p>
+<ul>
+<li>Locate the downloaded <strong>.exe</strong> file and run it.</li>
+<li>Follow the on-screen instructions. Key options include:</li>
+<li><strong>Select Components</strong>: Use the default settings unless you need specific options.</li>
+<li><strong>Default Editor</strong>: Choose a preferred text editor for Git (e.g., Vim, Visual Studio Code).</li>
+<li><strong>PATH Environment</strong>: Choose "Git from the command line and also from 3rd-party software" for broader usability.</li>
+</ul>
+</li>
+<li>
+<p>Complete the Installation</p>
+<ul>
+<li>Click <strong>Finish</strong> to finalize the installation.</li>
+</ul>
+</li>
+<li>
+<p>Verify the Installation</p>
+<ul>
+<li>Open <strong>Git Bash</strong> or the Command Prompt.</li>
+<li>
+<p>Run the following command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>--version
+</code></pre></div>
+</li>
+<li>
+<p>You should see output similar to:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>version<span class="w"> </span><span class="m">2</span>.x.x
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ol>
+<p>Mac Installation</p>
+<ul>
+<li>Install Git using <strong>Homebrew</strong> or <strong>Xcode Command Line Tools</strong>:</li>
+<li>Visit the <a href="https://git-scm.com/download/mac">official Git download page</a> for more options.</li>
+</ul>
+<hr />
+<h3 id="installing-docker">Installing Docker</h3>
+<p><strong>Docker</strong> is used to containerize the Questivity platform, making it easier to deploy and manage across environments.</p>
+<p>Windows Installation</p>
+<ol>
+<li>
+<p>Enable Hyper-V Virtualization</p>
+<ul>
+<li>Ensure that <a href="https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v"><strong>Hyper-V</strong></a> is enabled if you're running Windows Pro or Enterprise.</li>
+<li>If you're using Windows Home, follow <a href="https://www.youtube.com/watch?v=8ONMJyIyN74">this guide</a>.</li>
+</ul>
+</li>
+<li>
+<p>Download Docker Desktop</p>
+<ul>
+<li>Visit the <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop Download Page</a>.</li>
+<li>Click the <strong>Download Docker Desktop</strong> button.</li>
+</ul>
+</li>
+<li>
+<p>Run the Docker Installer</p>
+<ul>
+<li>Double-click the downloaded <strong>Docker Desktop Installer</strong>.</li>
+<li>Follow the on-screen instructions, ensuring that <strong>WSL</strong> integration is disabled if prompted.</li>
+</ul>
+</li>
+<li>
+<p>Verify the Installation</p>
+<ul>
+<li>Open <strong>Command Prompt</strong> or <strong>PowerShell</strong>.</li>
+<li>
+<p>Run the following command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>--version
+</code></pre></div>
+</li>
+<li>
+<p>You should see output similar to:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Docker<span class="w"> </span>version<span class="w"> </span>x.x.x,<span class="w"> </span>build<span class="w"> </span>xxxxxxx
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ol>
+<p>Mac Installation</p>
+<ol>
+<li>
+<p>Install Rosetta 2 (for Apple Silicon)</p>
+<ul>
+<li>Open the <strong>Terminal</strong> and run the following command to install <strong>Rosetta 2</strong> (required for compatibility with some apps):
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>softwareupdate<span class="w"> </span>--install-rosetta
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>Download Docker Desktop for macOS</p>
+<ul>
+<li>Visit the <a href="https://www.docker.com/products/docker-desktop">Docker Desktop Download Page</a>.</li>
+<li>Choose the version suitable for your system (Intel or Apple Silicon).</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="installing-python">Installing Python</h3>
+<p><strong>Python</strong> is the core programming language used to develop the Questivity Server (Django backend).</p>
+<p>Windows Installation</p>
+<ol>
+<li>
+<p>Download Python</p>
+<ul>
+<li>Visit the <a href="https://www.python.org/downloads/">official Python website</a> and download <strong>Python</strong> for Windows.</li>
+</ul>
+</li>
+<li>
+<p>Run the Installer</p>
+<ul>
+<li>Locate the downloaded <strong>.exe</strong> file and run it.</li>
+<li>Ensure that you check the option <strong>"Add Python to PATH"</strong> during installation.</li>
+<li>Choose <strong>Install Now</strong> and follow the installation wizard to complete the process.</li>
+</ul>
+</li>
+<li>
+<p>Verify the Installation</p>
+<ul>
+<li>
+<p>Open <strong>Command Prompt</strong> and run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>--version
+</code></pre></div>
+</li>
+<li>
+<p>You should see output similar to:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Python<span class="w"> </span><span class="m">3</span>.x.x
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ol>
+<p>Mac Installation</p>
+<ol>
+<li>
+<p>Download Python</p>
+<ul>
+<li>Visit the <a href="https://www.python.org/downloads/macos/">official Python website for macOS</a>.</li>
+<li>Download the latest stable version of <strong>Python</strong> for macOS by clicking the appropriate link.</li>
+</ul>
+</li>
+<li>
+<p>Run the Installer</p>
+<ul>
+<li>Once the download completes, locate the <strong>.pkg</strong> file in your <strong>Downloads</strong> folder and double-click it to start the installation process.</li>
+<li>Follow the installation wizard. It will guide you through the necessary steps.<ul>
+<li><strong>Note:</strong> You do not need to adjust any advanced settings. The default options will work fine for most users.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Verify the Installation
+    After installation, you need to verify that Python was installed correctly and that it is working as expected.</p>
+<ul>
+<li>Open <strong>Terminal</strong> (you can find this in Applications &gt; Utilities or by using Spotlight).</li>
+<li>
+<p>Run the following command to check the installed Python version:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python<span class="w"> </span>--version
+</code></pre></div>
+</li>
+<li>
+<p>You should see an output similar to:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Python<span class="w"> </span><span class="m">3</span>.x.x
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ol>
+<p>This confirms that Python is installed and ready to use on your macOS system.</p>
+<hr />
+<h3 id="using-the-terminal">Using the Terminal</h3>
+<p>Both <strong>Terminal</strong> on macOS and <strong>Git Bash</strong> on Windows use the <strong>Bash</strong> (Bourne Again Shell) command-line interface, which allows you to interact with your computer and execute commands. While they operate on different systems, the commands are similar because they both rely on Bash.</p>
+<hr />
+<h4 id="macos-open-terminal-from-a-specific-folder-in-finder">macOS: Open Terminal from a Specific Folder in Finder</h4>
+<ol>
+<li>
+<p><strong>Navigate to the Folder</strong><br />
+   Open <strong>Finder</strong> and go to the folder where you want to open Terminal.</p>
+</li>
+<li>
+<p><strong>Open Terminal from Finder</strong></p>
+<ul>
+<li>Option 1: Right-click the folder or anywhere inside the folder (if you're already in it).</li>
+<li>Option 2: Hold down the <strong>Control</strong> key and click to open the context menu.</li>
+<li>Choose <strong>New Terminal at Folder</strong> (available on macOS 12 Monterey and newer).</li>
+</ul>
+<p><strong>Note:</strong> If you don’t see this option, enable it by going to:<br />
+<code>System Settings &gt; Privacy &amp; Security &gt; Developer Tools</code><br />
+Then check the option for <strong>Finder</strong>.</p>
+</li>
+</ol>
+<hr />
+<h4 id="windows-open-git-bash-from-a-specific-folder-in-file-explorer">Windows: Open Git Bash from a Specific Folder in File Explorer</h4>
+<ol>
+<li>
+<p><strong>Navigate to the Folder</strong><br />
+   Open <strong>File Explorer</strong> and go to the folder where you want to open Git Bash.</p>
+</li>
+<li>
+<p><strong>Open Git Bash from Explorer</strong></p>
+<ul>
+<li>Right-click inside the folder or on the folder itself.</li>
+<li>In the context menu, select <strong>Git Bash Here</strong>. This opens Git Bash with that folder as the current directory.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4 id="how-to-open-the-terminal-macos">How to Open the Terminal (macOS)</h4>
+<ol>
+<li>Press <strong>Cmd + Space</strong> to open <strong>Spotlight</strong>.</li>
+<li>Type <strong>Terminal</strong> and press <strong>Enter</strong> to launch the Terminal app.</li>
+</ol>
+<hr />
+<h4 id="how-to-open-git-bash-windows">How to Open Git Bash (Windows)</h4>
+<ol>
+<li>Open the <strong>Start Menu</strong>.</li>
+<li>Search for <strong>Git Bash</strong> and click on it to open.</li>
+</ol>
+<hr />
+<h4 id="basic-bash-commands">Basic Bash Commands</h4>
+<p>Both <strong>macOS Terminal</strong> and <strong>Git Bash</strong> use similar commands to navigate through directories:</p>
+<ul>
+<li><code>pwd</code>: Displays the current directory (Print Working Directory).</li>
+<li><code>ls</code>: Lists files and directories in the current location.</li>
+<li><code>cd [directory]</code>: Changes the current directory to the specified one.</li>
+<li><code>cd ..</code>: Moves up one directory (to the parent directory).</li>
+<li><code>cd ~</code>: Returns to the home directory.</li>
+</ul>
+<hr />
+<h4 id="useful-shortcuts">Useful Shortcuts</h4>
+<ul>
+<li><strong>Up Arrow (↑)</strong>: Scroll through previously entered commands.</li>
+<li><strong>Tab Completion</strong>: Press <strong>Tab</strong> to auto-complete directory or file names.</li>
+</ul>
+<hr />
+<h4 id="example-of-navigation-in-bash">Example of Navigation in Bash</h4>
+<ol>
+<li>
+<p><strong>Move into a folder</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>Documents
+</code></pre></div>
+</li>
+<li>
+<p><strong>Move up one directory</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+</li>
+<li>
+<p><strong>Go to the home directory</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span><span class="w"> </span>~
+</code></pre></div>
+</li>
+<li>
+<p><strong>List contents of the current folder</strong>:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ls
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h4 id="bash-path-differences">Bash Path Differences</h4>
+<p>Bash uses the forward slash (<code>/</code>) as a directory separator, unlike Windows which uses the backslash (<code>\</code>).</p>
+<ul>
+<li>
+<p><strong>Windows Example</strong>:<br />
+<code>C:\Users\User\Documents\Folder\file.txt</code></p>
+</li>
+<li>
+<p><strong>Bash Example</strong>:<br />
+<code>/c/Users/User/Documents/Folder/file.txt</code></p>
+</li>
+</ul>
+<hr />
+<h3 id="using-git">Using Git</h3>
+<p>This section outlines how to configure and use Git, from setting up your username to managing branches and resolving conflicts.</p>
+<h4 id="summary-of-key-git-commands">Summary of Key Git Commands</h4>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clone a repository</td>
+<td><code>git clone https://github.com/username/repository</code></td>
+</tr>
+<tr>
+<td>Pull latest changes from remote repository</td>
+<td><code>git pull</code></td>
+</tr>
+<tr>
+<td>Check status of local repository</td>
+<td><code>git status</code></td>
+</tr>
+<tr>
+<td>Create and switch to a new branch</td>
+<td><code>git checkout -b new-branch-name</code></td>
+</tr>
+<tr>
+<td>Stage all changes</td>
+<td><code>git add .</code></td>
+</tr>
+<tr>
+<td>Commit changes with a message</td>
+<td><code>git commit -m "your commit message"</code></td>
+</tr>
+<tr>
+<td>Push a branch to remote</td>
+<td><code>git push origin branch-name</code></td>
+</tr>
+<tr>
+<td>Switch to an existing branch</td>
+<td><code>git checkout branch-name</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="logging-in-with-git">Logging in with Git</h4>
+<p>To configure Git with your username and email address, use the following commands in <strong>Terminal</strong> (macOS) or <strong>Git Bash</strong> (Windows). Replace the placeholders with your details:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Your Name&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;youremail@example.com&quot;</span>
+</code></pre></div>
+<p>When using Git to interact with remote repositories like GitHub, you may be prompted to log in with browser or you may need to login from terminal. GitHub now requires a <strong>Personal Access Token (PAT)</strong> instead of your password:</p>
+<ol>
+<li>
+<p><strong>Prompt to Open Browser</strong>:<br />
+   When performing an action like pushing changes to a repository, Git may prompt you to authenticate. You may be directed to a browser to log into your GitHub account.</p>
+</li>
+<li>
+<p><strong>Prompt to Login from Terminal</strong>:<br />
+   If prompted for a username and password in the terminal, use your GitHub <strong>Personal Access Token</strong> as the password. For instructions on creating a token, <a href="https://dev.to/shafia/support-for-password-authentication-was-removed-please-use-a-personal-access-token-instead-4nbk">use this guide</a>.</p>
+</li>
+</ol>
+<hr />
+<h4 id="cloning-a-repository">Cloning a Repository</h4>
+<p>Cloning a repository creates a local copy of a remote Git repository, including its full history. Here's how to clone a repository:</p>
+<ol>
+<li>
+<p><strong>Find the Repository URL</strong>:</p>
+<ul>
+<li>Navigate to the repository on your Git hosting service (GitHub, GitLab, Bitbucket).</li>
+<li>Copy the repository's URL.</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="#macos-open-terminal-from-a-specific-folder-in-finder">Open Terminal</a> or Git Bash</strong>:</p>
+<ul>
+<li>On macOS, open <strong>Terminal</strong>.</li>
+<li>On Windows, open <strong>Git Bash</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="#using-the-terminal">Navigate</a> to the Desired Directory</strong>:<br />
+   Use the <code>cd</code> command to navigate to the folder where you want to clone the repository:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">cd</span><span class="w"> </span>/path/to/folder
+</code></pre></div>
+</li>
+<li>
+<p><strong>Clone the Repository</strong>:<br />
+   Run the following command, replacing the URL with the one you copied:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/username/repository
+</code></pre></div>
+<p>This creates a folder with the repository's contents.</p>
+</li>
+</ol>
+<hr />
+<h4 id="pulling-a-repository">Pulling a Repository</h4>
+<p>The <code>git pull</code> command updates your local repository with the latest changes from the remote repository:</p>
+<ol>
+<li><strong><a href="#macos-open-terminal-from-a-specific-folder-in-finder">Open Terminal</a> or Git Bash</strong>:</li>
+<li><strong><a href="#using-the-terminal">Navigate</a> to Your Local Repository</strong>:</li>
+<li>
+<p><strong>Run the Command</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git<span class="w"> </span>pull
+</code></pre></div>
+<p>This fetches and merges changes from the remote repository into your current branch. Be aware of potential <strong>merge conflicts</strong>, which require manual resolution.</p>
+</li>
+</ol>
+<hr />
+<h4 id="staging-in-git">Staging in Git</h4>
+<p>Staging in Git is the process of selecting changes to include in the next commit. Here's how to manage staging:</p>
+<ol>
+<li>
+<p><strong>Check Status</strong>:<br />
+   View the status of your repository to see modified or new files:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>git<span class="w"> </span>status
+</code></pre></div>
+</li>
+<li>
+<p><strong>Stage Changes</strong>:</p>
+<ul>
+<li>
+<p>Stage a specific file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>git<span class="w"> </span>add<span class="w"> </span>filename.txt
+</code></pre></div>
+</li>
+<li>
+<p>Stage all changes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Review Staged Changes (Optional)</strong>:<br />
+   To see what changes are staged, run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>git<span class="w"> </span>diff<span class="w"> </span>--cached
+</code></pre></div>
+</li>
+<li>
+<p><strong>Unstage Changes (Optional)</strong>:</p>
+<ul>
+<li>
+<p>Unstage a specific file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>git<span class="w"> </span>reset<span class="w"> </span>filename.txt
+</code></pre></div>
+</li>
+<li>
+<p>Unstage all files:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>git<span class="w"> </span>reset
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4 id="commit-in-git">Commit in Git</h4>
+<p>A <strong>commit</strong> is a snapshot of your project at a specific point. After staging your changes, commit them with a descriptive message:</p>
+<ol>
+<li><strong><a href="#staging-in-git">Stage</a> the Files You Want to Commit</strong>.</li>
+<li>
+<p><strong>Make the Commit</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;your commit message&quot;</span>
+</code></pre></div>
+</li>
+</ol>
+<hr />
+<h4 id="pull-requests-prs">Pull Requests (PRs)</h4>
+<p>What is a Pull Request?</p>
+<p>A pull request (PR) is a way to propose changes to a codebase in a collaborative environment, typically on platforms like GitHub. It allows you to notify other developers about the changes you've made in a branch and request that they review and merge those changes into another branch (usually the main branch).</p>
+<p>What Are Branches?
+In Git, a branch is a separate line of development. It allows you to work on changes without affecting the main codebase. Branches are like parallel versions of the project, which can be modified independently and later merged back into the main code when the work is ready. This setup helps in managing different features, bug fixes, or experiments without disrupting the stability of the main branch.</p>
+<p>A <strong>pull request</strong> (PR) is used to propose changes to a repository, typically when working collaboratively. Here’s how to create a PR:</p>
+<ol>
+<li>
+<p><strong>Create a New Branch</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>new-feature-branch
+</code></pre></div>
+</li>
+<li>
+<p><strong><a href="#staging-in-git">Stage</a> and <a href="#commit-in-git">Commit</a> Your Changes</strong>.</p>
+</li>
+<li>
+<p><strong>Push the Branch to GitHub</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>new-feature-branch
+</code></pre></div>
+</li>
+<li>
+<p><strong>Create the Pull Request</strong>:</p>
+<ul>
+<li>Open the repository in a browser.</li>
+<li>Switch to your new branch.</li>
+<li>Click <strong>Compare &amp; pull request</strong>.</li>
+<li>Fill out the form and submit your PR.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sync Changes After Merge</strong>:
+    If your branch is already merged, you must sync your main branch to apply these new changes, if you want to make changes but your branch has not yet been approved, you can <a href="#updating-a-pull-request-pr-before-approval">update your pull request</a></p>
+<ul>
+<li>
+<p>Switch back to the main branch:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>main
+</code></pre></div>
+</li>
+<li>
+<p>Pull the latest changes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div>
+</li>
+</ul>
+<p>If you need to make updates to your pull request before someone approves or merges it, you can continue making changes on the <strong>same branch</strong>. The steps below explain how to update a pull request with additional changes:</p>
+</li>
+</ol>
+<hr />
+<h4 id="updating-a-pull-request-pr-before-approval">Updating a Pull Request (PR) Before Approval</h4>
+<p>If your pull request is still open and you want to make changes to the same branch, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Make Additional Changes</strong><br />
+   Edit the files in your local repository as needed.</p>
+</li>
+<li>
+<p><strong>Stage and Commit the Changes</strong><br />
+   Once you have made the required changes, stage and commit them as you normally would:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Update with additional changes&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p><strong>Push the New Commits to the Same Branch</strong><br />
+   After committing, push the changes to the same branch you created the pull request from:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>new-feature-branch
+</code></pre></div>
+<p>Since the pull request is linked to this branch, GitHub will automatically update the pull request with the new changes.</p>
+</li>
+</ol>
+<h5 id="viewing-updates-in-the-pr">Viewing Updates in the PR</h5>
+<p>After pushing your updates, the changes will appear in the existing pull request. Reviewers will now see your latest commits and can continue the review process with the updated code.</p>
+<h5 id="important-considerations">Important Considerations</h5>
+<ul>
+<li>
+<p><strong>Multiple Commits</strong>: Each commit you push to the branch will be reflected in the pull request, so you can push as many changes as necessary until the PR is approved.</p>
+</li>
+<li>
+<p><strong>Keep Branches Updated</strong>: To avoid conflicts, regularly pull the latest changes from the main branch into your feature branch before making updates:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div>
+</li>
+</ul>
+<hr />
+<h4 id="merge-conflicts">Merge Conflicts</h4>
+<p>A <strong>merge conflict</strong> occurs when changes in different branches cannot be automatically merged. Here's how to resolve them:</p>
+<ol>
+<li>
+<p><strong>Check the Status</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>git<span class="w"> </span>status
+</code></pre></div>
+</li>
+<li>
+<p><strong>Identify Conflict Markers</strong>:<br />
+   Conflict markers appear in files like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>Your changes.
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>=======
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>Changes from the other branch.
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-branch
+</code></pre></div>
+</li>
+<li>
+<p><strong>Resolve the Conflict</strong>:<br />
+   Edit the file to keep the appropriate changes and remove conflict markers.</p>
+</li>
+<li>
+<p><strong>Stage the Resolved File</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>git<span class="w"> </span>add<span class="w"> </span>resolved-file.txt
+</code></pre></div>
+</li>
+<li>
+<p><strong>Commit the Resolved Changes</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>git<span class="w"> </span>commit
+</code></pre></div>
+</li>
+</ol>
+<hr />
+<h4 id="preventing-merge-conflicts">Preventing Merge Conflicts</h4>
+<p>To minimize conflicts:</p>
+<ul>
+<li>Communicate with your team regularly about shared files.</li>
+<li>Pull frequently from the main branch.</li>
+<li>Keep feature branches small and focused.</li>
+</ul>
+<hr />
+<h3 id="using-docker">Using Docker</h3>
+<p>Docker is a powerful tool that simplifies the deployment and management of applications by using containers. Containers encapsulate an application and its dependencies, ensuring consistent behavior across different environments. This reduces conflicts and simplifies the management of software components.</p>
+<h4 id="summary-of-key-commands">Summary of Key Commands</h4>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start services with Docker Compose</td>
+<td><code>docker-compose up -d</code></td>
+</tr>
+<tr>
+<td>Rebuild containers</td>
+<td><code>docker-compose up --build</code></td>
+</tr>
+<tr>
+<td>Stop services</td>
+<td><code>docker-compose stop</code></td>
+</tr>
+<tr>
+<td>Stop and remove services</td>
+<td><code>docker-compose down</code></td>
+</tr>
+<tr>
+<td>View running containers</td>
+<td><code>docker ps</code></td>
+</tr>
+<tr>
+<td>View all containers</td>
+<td><code>docker ps -a</code></td>
+</tr>
+<tr>
+<td>Stop a specific container</td>
+<td><code>docker stop &lt;container_id_or_name&gt;</code></td>
+</tr>
+<tr>
+<td>Start a specific container</td>
+<td><code>docker start &lt;container_id_or_name&gt;</code></td>
+</tr>
+<tr>
+<td>View logs of a container</td>
+<td><code>docker logs &lt;container_id_or_name&gt;</code></td>
+</tr>
+<tr>
+<td>Remove a container</td>
+<td><code>docker rm &lt;container_id_or_name&gt;</code></td>
+</tr>
+<tr>
+<td>Restart a container</td>
+<td><code>docker restart &lt;container_id_or_name&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cleaning-up-docker">Cleaning up Docker</h4>
+<p>To free up disk space by removing unused containers, images, volumes, and networks, Docker provides several cleanup commands. Here’s a summary of these commands:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>docker<span class="w"> </span>system<span class="w"> </span>prune<span class="w"> </span>-a<span class="w"> </span>--volumes
+</code></pre></div>
+<hr />
+<h4 id="docker-compose">Docker Compose</h4>
+<p>For multi-container applications, <strong>Docker Compose</strong> is used. It allows you to define, configure, and run multiple containers as part of a single application stack. The application is defined in a <code>docker-compose.yml</code> or <code>compose.yml</code> file, making it easy to manage services with a single command.</p>
+<hr />
+<h4 id="starting-docker-compose">Starting Docker Compose</h4>
+<p>To start the services defined in a <code>docker-compose.yml</code> or <code>compose.yml</code> file, follow these steps:</p>
+<ol>
+<li>
+<p>Ensure Docker is Running</p>
+<ul>
+<li>Open <strong>Docker Desktop</strong> (macOS or Windows).</li>
+<li>Verify that Docker is running. Docker Desktop should show as "Running."</li>
+</ul>
+</li>
+<li>
+<p>Navigate to the Directory</p>
+<ul>
+<li>Open your terminal and navigate to the directory containing your <code>docker-compose.yml</code> file:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nb">cd</span><span class="w"> </span>/path/to/your/project
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>Start the Services</p>
+<ul>
+<li>
+<p>Start all the services defined in your <code>docker-compose.yml</code> file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+</li>
+<li>
+<p><strong><code>-d</code></strong>: Runs containers in detached mode (in the background).</p>
+</li>
+<li>
+<p><strong><code>--build</code></strong>: Rebuilds images before starting containers.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>--build
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>Stopping Services</p>
+<ul>
+<li>
+<p>To stop the services without removing the containers:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>docker-compose<span class="w"> </span>stop
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ol>
+<p>This stops the running containers but keeps them available for future use. To remove the containers completely, use <code>docker-compose down</code> (explained below).</p>
+<hr />
+<h4 id="viewing-running-containers">Viewing Running Containers</h4>
+<p>To see all running containers:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>docker<span class="w"> </span>ps
+</code></pre></div>
+<ul>
+<li><strong><code>ps</code></strong>: Lists running Docker containers along with their IDs, status, ports, and more.</li>
+<li><strong>Common flag</strong>:<ul>
+<li><strong><code>-a</code></strong>: Shows all containers, including those that are stopped.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a
+</code></pre></div>
+<hr />
+<h4 id="stopping-a-specific-container">Stopping a Specific Container</h4>
+<p>To stop a specific container, use its container ID or name (retrieved from <code>docker ps</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>docker<span class="w"> </span>stop<span class="w"> </span>&lt;container_id_or_name&gt;
+</code></pre></div>
+<ul>
+<li><strong><code>stop</code></strong>: Sends a SIGTERM signal to gracefully stop the container.</li>
+</ul>
+<hr />
+<h4 id="starting-a-specific-container">Starting a Specific Container</h4>
+<p>To start a stopped container:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>docker<span class="w"> </span>start<span class="w"> </span>&lt;container_id_or_name&gt;
+</code></pre></div>
+<ul>
+<li><strong><code>start</code></strong>: Starts a container that was previously stopped.</li>
+</ul>
+<hr />
+<h4 id="removing-a-container">Removing a Container</h4>
+<p>To remove a stopped container:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>docker<span class="w"> </span>rm<span class="w"> </span>&lt;container_id_or_name&gt;
+</code></pre></div>
+<ul>
+<li><strong><code>rm</code></strong>: Permanently deletes the container, freeing up disk space.</li>
+</ul>
+<hr />
+<h4 id="viewing-logs-of-a-container">Viewing Logs of a Container</h4>
+<p>To view logs from a running container:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>&lt;container_id_or_name&gt;
+</code></pre></div>
+<ul>
+<li><strong><code>logs</code></strong>: Displays the standard output of a container.</li>
+<li><strong>Common flag</strong>:<ul>
+<li><strong><code>-f</code></strong>: Follows the logs and continuously updates them in real-time.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4 id="restarting-a-container">Restarting a Container</h4>
+<p>To restart a container (stop and start it again):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>docker<span class="w"> </span>restart<span class="w"> </span>&lt;container_id_or_name&gt;
+</code></pre></div>
+<ul>
+<li><strong><code>restart</code></strong>: Stops and then starts the container in a single command.</li>
+</ul>
+<hr />
+<h4 id="bringing-down-the-entire-docker-compose-setup">Bringing Down the Entire Docker Compose Setup</h4>
+<p>To stop and remove all services, networks, and containers defined in the <code>docker-compose.yml</code> file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>docker-compose<span class="w"> </span>down
+</code></pre></div>
+<ul>
+<li><strong><code>down</code></strong>: Stops and removes containers, networks, and associated volumes created by <code>docker-compose up</code>.</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/csula-cs3337swe/202408Group8-repo" target="_blank" rel="noopener">Questivity</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/csula-cs3337swe/202408Group8-repo" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
