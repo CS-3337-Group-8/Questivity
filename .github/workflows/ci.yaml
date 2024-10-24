@@ -19,4 +19,6 @@ jobs:
                   key: ${{ github.ref }}
                   path: .cache
             - run: pip install mkdocs mkdocs-material mkdocs-mermaid2-plugin
-            - run: mkdocs gh-deploy --force --site-dir documentation/
+            - run: |
+                  cd documentation
+                  mkdocs gh-deploy --force
