@@ -30,12 +30,19 @@ theme:
           accent: blue
     #logo: assets/eddie-icon.png
 
-
-markdown_extensions:
-  - attr_list
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+plugins:
+    - search
+    - mermaid2:
+          version: "9.4.3" # only works with version < 10
+          arguments:
+              theme: "dark"
+              themeVariables:
+                  primaryColor: "#BB2528"
+                  primaryTextColor: "#fff"
+                  primaryBorderColor: "#7C0000"
+                  lineColor: "#F8B229"
+                  secondaryColor: "#006100"
+                  tertiaryColor: "#fff"
 
 extra:
     social:
@@ -52,9 +59,18 @@ markdown_extensions:
           generic: true
     - footnotes
     - pymdownx.details
-    - pymdownx.superfences
     - pymdownx.mark
     - attr_list
+    - pymdownx.superfences:
+          custom_fences:
+              - name: mermaid
+                class: mermaid
+                format: !!python/name:pymdownx.superfences.fence_div_format
+                    # extra_css:
+                    #     - https://unpkg.com/mermaid@9.4.3/dist/mermaid.css
+                    # extra_javascript:
+                    #     - https://unpkg.com/mermaid@9.4.3/dist/mermaid.min.js
+
 
 copyright: |
     &copy; 2024 <a href="https://github.com/csula-cs3337swe/202408Group8-repo" target="_blank" rel="noopener">Questivity</a>
